@@ -40,7 +40,7 @@ int main()
 	cin >> s;
 	Zalgo Z(s);	
 	
-s	for (int i = 1; i < s.size(); i++)
+	for (int i = 1; i < s.size(); i++)
 	{
 		if (Z[i]+i == s.size()) cout << i << " ";
 	}
