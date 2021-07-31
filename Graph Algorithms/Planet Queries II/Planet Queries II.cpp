@@ -7,41 +7,52 @@ struct lifting
 	int n, P = 33;
 	vector < vector < int > > anc;
 
-	vector < int > D;
+	vector < int > state;
+	vector < int > H;
+	vector < int > Po;
 	vector < int > L;
 	vector < int > R;
 
-	int dfs(int x)
+	void findCycle(int x)
 	{
-		if (D[x] == -2) return D[x] = -1;
-		else if (D[x] != -1) return D[x];
-		D[x] = -2;
-
-		int temp = dfs(anc[0][x]) + 1;
-		if (D[x] != -2 && L[x] == -1)
+		if (state[x] == 2) return;
+		else if (state[x] == 1)
 		{
-			D[x] = temp;
-			setl(x, temp+1, x);
-			return 0;
+			setCycle(x, 0);
 		}
-		if (R[x] == -1) R[x] = R[anc[0][x]];
-		return D[x] = temp;
+		else
+		{
+			state[x] = 1;
+			findCycle(anc[0][x]); 
+			state[x] = 2;
+		}
 	}
 
-	void setl(int x, int l, int c)
+	int setCycle(int x, int v)
 	{
-		L[x] = l;
+		if (state[x] == 2) return v;
+		state[x] = 2;
+		Po[x] = v;
 		R[x] = x;
-		if (anc[0][x] != c) setl(anc[0][x], l, c);
+		return L[x] = setCycle(anc[0][x], v+1);
 	}
-		
+
+	int calcH(int x)
+	{
+		if (H[x] != -1) return H[x];
+		if (L[x] != -1) return H[x] = 0;
+		return H[x] = calcH(anc[0][x])+1;
+	}
+	
+	int calcR(int x)
+	{
+		if (R[x] != -1) return R[x];
+		return R[x] = calcR(anc[0][x]);
+	}
 
 	lifting(vector < int > next) : n(next.size())
 	{
 		anc.resize(P, vector < int > (n));
-		D.resize(n, -1);
-		L.resize(n, -1);
-		R.resize(n, -1);
 
 		anc[0] = next;
 
@@ -53,7 +64,20 @@ struct lifting
 			}
 		}
 
-		for (int x = 0; x < n; x++) dfs(x);
+		state.resize(n, 0);
+		H.resize(n, -1);
+		L.resize(n, -1);
+		R.resize(n, -1);
+		Po.resize(n, -1);
+		for (int x = 0; x < n; x++)
+		{
+			findCycle(x);
+		}
+		for (int x = 0; x < n; x++)
+		{
+			calcH(x);
+			calcR(x);
+		}
 	}
 
 	int lift(int x, ll k)
@@ -68,24 +92,38 @@ struct lifting
 		return x;
 	}
 
+	int rootCheck(int a, int b)
+	{
+		ll g = Po[a] - Po[b];
+		if (g < 0) g += L[a];
+		
+		if (lift(a, g) == b) return g;
+		else
+		{
+			g = Po[b] - Po[a];
+			if (g < 0) g += L[b];
+			if (lift(a, g) == b) return g;
+		}
+		return -1;
+	}
+
 	int check(int a, int b)
 	{
-		if (R[a] != a && R[b] != b)
+		if (R[a] == a && R[b] == b)
 		{
-			int g = D[a] - D[b];
-			if (lift(a, g) == b) return g;
+			return rootCheck(a, b);	
 		}
-		else if (R[b] == b)
+		else if (R[b] != b)
 		{
-			int ra = R[a];
-
-			int d = D[ra] - D[b];
-
-			if (d < 0) d += L[ra];
-
-			int g = D[a] + d;
-			if (lift(a, g) == b) return g;
+			ll g = H[a] - H[b];
+			if (g >= 0 && lift(a, g) == b) return g;
 		}
+		else
+		{
+			ll ra = R[a];
+			ll d = rootCheck(ra, b);
+			if (d != -1) return d + H[a];
+		}	
 		return -1;
 	}
 };
