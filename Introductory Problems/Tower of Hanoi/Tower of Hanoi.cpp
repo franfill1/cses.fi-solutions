@@ -20,3 +20,4 @@ int main()
 	cout << (1ll<<n)-1 << "\n";
 	move(n, 1, 3);
 }
+

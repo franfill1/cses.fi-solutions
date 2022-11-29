@@ -21,3 +21,4 @@ int main()
 	cin >> n >> m;
 	cout << ((fact[n+m-1] * modpow(fact[n-1], M-2))%M * modpow(fact[m], M-2))%M << "\n";
 }
+

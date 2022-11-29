@@ -1,19 +1,31 @@
-#include<bits/stdc++.h>
+#include<iostream>
 using namespace std;
 
 int main()
 {
-	int n;
-	cin >> n;
-
-	long long s = 0;
-	long long ans = -1ll<<60;
-	while(n--)
-	{
-		long long e; cin >> e;
-		s += e;
-		ans = max(ans, s);
-		s = max(0ll, s);
+ 	int n;
+ 	cin >> n;
+ 	int x[n];
+ 	for (int i = 0; i < n; i++)
+ 	{
+ 		cin >> x[i];
 	}
-	cout << ans;
+	
+	long long sum = x[0];
+	long long ans = sum;
+	for (int i = 1; i < n; i++)
+	{
+		if (sum < 0)
+		{
+			sum = 0;
+		}
+		sum += x[i];
+		if (sum > ans)
+		{
+			ans = sum;
+		}
+	}
+	cout << ans << "\n";
 }
+
+

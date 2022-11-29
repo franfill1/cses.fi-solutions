@@ -32,13 +32,13 @@ struct bst
 		n->r = build(m+1, b);
 		if (n->r) n->r->par = n;
 
+
 		return n;
 	}
 
-	node* findByOrder(node *n, int o)
+	node *findByOrder(node *n, int o)
 	{
 		if(n->size < o) return NULL;
-
 		int lsize = 0;
 		if (n->l) lsize = n->l->size;
 
@@ -89,7 +89,6 @@ int main()
 {
 	int n;
 	cin >> n;
-
 	vector < ll > V(n);
 	for (ll &x : V) cin >> x;
 
@@ -97,8 +96,8 @@ int main()
 
 	while(n--)
 	{
-		int o; 
-		cin >> o;
+		int o; cin >> o;
 		cout << V[tree.query(o)] << " ";
 	}
 }
+

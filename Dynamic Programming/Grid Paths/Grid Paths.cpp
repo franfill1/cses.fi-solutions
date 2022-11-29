@@ -1,45 +1,52 @@
-#include <bits/stdc++.h>
-#define M 1000000007
-
+#include<bits/stdc++.h>
+#define mod 1000000007
 using namespace std;
-
-vector < string > ma;
-vector < vector < int > > memo;
-
-int dp (int i, int j)
-{
-	if (i >= memo.size() || j >= memo[0].size() || ma[i][j] == '*')
-	{
-		return 0;
-	}
-	else if (i == memo.size() - 1 && j == memo[0].size() - 1)
-	{
-		return 1;
-	}
-	else if (memo[i][j] != -1)
-	{
-		return memo[i][j];
-	}
-	else
-	{
-		memo[i][j] = dp(i+1, j) + dp(i, j+1);
-		memo[i][j] %= M;
-		return memo[i][j];
-	}
-}
 
 int main()
 {
 	int N;
 	cin >> N;
-	ma.resize(N);
-	memo.resize(N, vector < int > (N, -1));
+	vector < vector < char > > M(N);
+	vector < vector < long long > > memo(N);
 	
-	for (int i = 0; i < N; i++)
+	for (int y = 0; y < N; y++)
 	{
-		cin >> ma[i];
+		M[y].resize(N);
+		memo[y].resize(N);
+	}
+
+	for (int y = 0; y < N; y++)
+	{
+		for (int x = 0; x < N; x++)
+		{
+			cin >> M[x][y]; 
+		}
 	}
 	
-	cout << dp(0, 0);
+	if (M[0][0] == '.')
+	{
+		memo[0][0] = 1;
+	}
+	for (int x = 0; x < N; x++)
+	{
+		for (int y = 0; y < N; y++)
+		{
+			if (M[x][y] != '*')
+			{
+				if (x > 0)
+				{
+					memo[x][y] += memo[x-1][y];
+					memo[x][y] %= mod;
+				}
+				if (y > 0)
+				{
+					memo[x][y] += memo[x][y-1];
+					memo[x][y] %= mod;
+				}
+			}
+		}
+	}
+	cout << memo[N-1][N-1] << "\n";
 }
+
 

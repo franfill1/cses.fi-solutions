@@ -79,3 +79,4 @@ int main()
 	if (t < n) cout << "IMPOSSIBLE\n";
 	else cout << ans << "\n";
 }
+

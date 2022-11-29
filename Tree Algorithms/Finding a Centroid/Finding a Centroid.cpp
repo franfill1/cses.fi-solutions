@@ -45,3 +45,4 @@ int main()
 	cout << centroid(0) + 1;
 }
 
+

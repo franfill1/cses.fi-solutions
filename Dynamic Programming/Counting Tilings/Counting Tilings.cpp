@@ -49,3 +49,4 @@ int main()
 	memo.resize(1<<n, vector < ll > (m, -1));
 	cout << dp(0, 0);
 }
+

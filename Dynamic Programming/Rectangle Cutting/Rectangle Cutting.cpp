@@ -33,3 +33,4 @@ int main()
 	memo.resize(b+1, vector < int > (b+1, -1));
 	cout << dp(a, b) << "\n";
 }
+

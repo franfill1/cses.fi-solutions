@@ -19,3 +19,4 @@ int main()
 	cout << sol.size() << "\n";
 	for (string c : sol) cout << c << "\n";
 }
+

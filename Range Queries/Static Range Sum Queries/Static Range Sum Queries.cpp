@@ -36,3 +36,4 @@ int main()
 		cout << ps.get(a, b) << "\n";
 	}
 }
+

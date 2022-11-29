@@ -24,3 +24,4 @@ int main()
 	ans %= M;
 	cout << ans << "\n";
 }
+

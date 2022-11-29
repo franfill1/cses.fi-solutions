@@ -26,3 +26,4 @@ int main()
 		cout << (((fact[a] * modpow(fact[b], M-2))%M * modpow(fact[a-b], M-2))%M) << "\n";
 	}
 }
+

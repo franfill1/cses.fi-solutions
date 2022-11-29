@@ -78,3 +78,4 @@ int main()
 		cout << seg.get(0, n-1) << "\n";
 	}
 }
+

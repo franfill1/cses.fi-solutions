@@ -2,7 +2,8 @@
 #include<iostream>
 using namespace std;
 typedef long long ll;
- 
+
+
 int main()
 {
 	int n;
@@ -19,3 +20,4 @@ int main()
 	
 	cout << max(ma*2, sum);
 }
+

@@ -27,3 +27,4 @@ int main()
 	cin >> N;
 	genGray(N);
 }
+

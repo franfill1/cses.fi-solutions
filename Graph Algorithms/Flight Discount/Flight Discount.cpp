@@ -68,3 +68,4 @@ int main()
 
 	cout << D[1][n-1];
 }
+

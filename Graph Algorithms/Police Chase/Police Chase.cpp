@@ -86,3 +86,4 @@ int main()
 			cout << ed.first+1 << " " << ed.second+1 << "\n";
 	}
 }
+

@@ -64,3 +64,4 @@ int main()
 		cout << cnt << " " << siz << "\n";
 	}
 }
+

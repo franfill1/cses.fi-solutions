@@ -40,11 +40,13 @@ int main()
 	cin >> s;
 	Zalgo Z(s);	
 	
+	priority_queue < int , vector < int > , greater < int > > pq;
 	for (int i = 1; i < s.size(); i++)
 	{
-		if (Z[i]+i == s.size()) cout << i << " ";
+		if (Z[i] == s.size()-i) cout << i << " ";
 	}
 	cout << s.size();
 
 }
+
 

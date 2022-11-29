@@ -20,3 +20,4 @@ int main()
 		cout << (ans?"first":"second") << "\n";
 	}
 }
+

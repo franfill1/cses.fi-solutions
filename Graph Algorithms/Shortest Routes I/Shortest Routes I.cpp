@@ -44,3 +44,4 @@ int main()
 
 	for (ll d : D) cout << d << " ";
 }
+

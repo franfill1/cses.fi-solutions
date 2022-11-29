@@ -1,36 +1,30 @@
-#include <bits/stdc++.h>
-#pragma gcc optimize("Ofast")
-
+#include<bits/stdc++.h>
 using namespace std;
-
 typedef long long ll;
-
-#define B 1000000009
-#define A 257
 
 struct rollingHash
 {
-	int N;
-	vector < ll > pre;
+	static const ll m = 1000000009, b = 257;
+	int n;
+	vector < ll > v;
 	vector < ll > p;
-	
-	rollingHash(string s) : N(s.size())
+	rollingHash(string s)
 	{
-		pre.resize(N+1);
-		p.resize(N+1);
-		pre[0] = 0;
-		p[0] = 1;
-		for (int i = 1; i <= N; i++)
+		n = s.size();
+		v.resize(n+1, 0);
+		p.resize(n+1, 1);
+		for (int i = 1; i <= n; i++)
 		{
-			pre[i] = ((pre[i-1]*A)%B + s[i-1])%B;
-			p[i] = (p[i-1]*A)%B;
+			v[i] = ((v[i-1] * b)%m + s[i-1])%m;
+			p[i] = (p[i-1] * b) % m;
 		}
-	};
-	
-	ll get (int a, int b)
+	}
+
+	ll get(int l, int r)
 	{
-		return ((pre[b] - (pre[a]*p[b-a])%B)%B + B)%B;
-	};
+		ll a = ((v[r] - (v[l]*p[r-l])%m)%m+m)%m;
+		return a;
+	}
 };
 
 string rev(string s)
@@ -56,7 +50,7 @@ int main()
 		ns += s[i]; ns+= '#';
 	}
 	s = ns;
-	
+
 	rollingHash r(s);
 	rollingHash rr(rev(s));
 

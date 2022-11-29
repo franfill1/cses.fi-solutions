@@ -35,3 +35,4 @@ int main()
 		cout << px.get(a, b) << "\n";
 	}
 }
+

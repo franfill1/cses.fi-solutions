@@ -1,101 +1,50 @@
 #include <bits/stdc++.h>
-
+#define pb push_back
+#define pii pair < int, int >
+#define f first
+#define s second
+ 
 using namespace std;
 
-vector < vector < int > > mat;
-vector < vector < int > > t;
-vector < int > dep;
-int mp = 0;
-
-int anc(int x, int k)
+int lca(int u, int v, int LOG, vector < int > &depth, vector < vector < int > > &up)
 {
-	int p = mp;
-	while(k > 0 && x != -1)
-	{
-		while(1<<p > k)
-		{
-			p--;
-		}
-		k -= 1<<p;
-		x = mat[p][x];
-	}
-	return x;
-}
+    if (depth[u] < depth[v]) swap(u, v);
+    int k = depth[u] - depth[v];
+    for (int j = 0; j < LOG; j++) if (k & (1 << j)) u = up[u][j];
 
-void dfs(int n, int from, int d)
-{
-	dep[n] = d;
-	for (int ne : t[n])
-	{
-		if (ne != from)
-		{
-			dfs(ne, n, d+1);
-		}
-	}
+    if (u == v) return v;
+    for (int j = LOG - 1; j >= 0; j--) if (up[u][j] != up[v][j]) 
+    {
+        u = up[u][j];
+        v = up[v][j];
+    }
+    return up[u][0];
 }
 
 int main()
 {
 	int N, Q;
-	cin >> N >> Q;
-	while(1<<mp <= N)
-	{
-		mp++;
-	}
-	mat.resize(mp, vector < int > (N));
-	t.resize(N);
-	dep.resize(N);
-	
-	mat[0][0] = -1;
-	for (int i = 1; i < N; i++)
-	{
-		cin >> mat[0][i];
-		mat[0][i]--;
-		
-		t[mat[0][i]].push_back(i);
-		t[i].push_back(mat[0][i]);
-	}
-	
-	dfs(0, -1, 0);
-	
-	for (int p = 1; p < mp; p++)
-	{
-		for (int i = 0; i < N; i++)
-		{
-			int temp = mat[p-1][i];
-			if (temp != -1)
-			{
-				temp = mat[p-1][temp];
-			}
-			mat[p][i] = temp;
-		}
-	}
-	
-	while(Q--)
-	{
-		int a, b;
-		cin >> a >> b;
-		a--; b--;
-		a = anc(a, max(0, dep[a] - dep[b]));
-		b = anc(b, max(0, dep[b] - dep[a]));
-		int p = mp;
-		for (int p = mp-1; p >= 0; p--)
-		{
-			int na, nb;
-			na = anc(a, 1<<p);
-			nb = anc(b, 1<<p);
-			while(na != nb)
-			{
-				a = na; b = nb;
-				na = anc(a, 1<<p);
-				nb = anc(b, 1<<p);
-			}
-		}
-		if (a != b)
-		{
-			a = anc(a, 1);
-		}
-		cout << a+1 << "\n";
-	}
+    cin >> N >> Q;
+    N++;
+    int LOG = ceil(log2(N));
+
+    vector < vector < int > > up(N, vector < int >(LOG));
+    vector < int > depth(N, 0);
+    up[0][0] = up[1][0] = 0;
+    for (int i = 2; i < N; i++)
+    {
+        int a;
+        cin >> a;
+        up[i][0] = a;
+        depth[i] = depth[a] + 1;
+    }
+    for (int j = 1; j < LOG; j++) for (int i = 0; i < N; i++) up[i][j] = up[ up[i][j - 1] ][j - 1];
+    
+    while (Q--)
+    {
+        int u, v;
+        cin >> u >> v;
+        cout << lca(u, v, LOG, depth, up) << "\n";
+    }
 }
 

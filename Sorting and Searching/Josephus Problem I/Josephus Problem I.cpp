@@ -1,8 +1,11 @@
 #include<bits/stdc++.h>
+#pragma GCC optimize("Ofast")
 using namespace std;
 
 int main()
 {
+	ios_base::sync_with_stdio(false);
+	cout.tie(NULL); cin.tie(NULL);
 	int n;
 	cin >> n;
 	
@@ -14,3 +17,4 @@ int main()
 		cout << s[p] + 1 << " ";
 	cout << p+1;
 }
+

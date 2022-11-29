@@ -43,3 +43,4 @@ int main()
 		cout << (calc(0, n) + calc(1, n))%M << "\n";
 	}
 }
+

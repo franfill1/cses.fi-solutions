@@ -1,65 +1,65 @@
-#include <bits/stdc++.h>
- 
+#include<bits/stdc++.h>
 using namespace std;
- 
 typedef long long ll;
-typedef pair < int , ll > pill;
- 
+
 int main()
 {
-	int N, M;
-	cin >> N >> M;
-	vector < vector < pill > > g(N);
-	for (int i = 0; i < M; i++)
+	int n, m;
+	cin >> n >> m;
+	vector < vector < pair < int , ll > > > g(n);
+	vector < vector < int > > r(n);
+	for (int i = 0; i < m; i++)
 	{
-		int a, b, w;
-		cin >> a >> b >> w; a--; b--;
-		g[a].push_back({b, w});
+		int a, b; ll x;
+		cin >> a >> b >> x; a--; b--;
+		g[a].push_back({b, x});
+		r[b].push_back(a);
 	}
-	
-	vector < ll > D(N, LONG_MIN/2);
-	D[0] = 0;
- 
-	bool cha=true, lcha=false;
 	queue < int > q;
-	vector < bool > vis(N, false);
-	int r = 0;
-	while(cha && r <= 2*N)
-	{
-		r++;
-		cha = false;
-		for (int n = 0; n < N; n++)
-		{
-			if (D[n] == LONG_MIN/2) continue;
-			for (pill p : g[n])
-			{
-				int ne = p.first; ll w = p.second;
-				if (D[n] + w > D[ne])
-				{
-					D[ne] = D[n] + w;
-					cha = true;
-					if (r > N+1)
-					{
-						q.push(ne);
-						vis[ne] = true;
-					}
- 				}
-			}
-		}
-	}
+	set < int > us1 {0};
+	q.push(0);
 	while(!q.empty())
 	{
-		int n = q.front(); q.pop();
-		for (pill p : g[n])
+		int a = q.front();
+		q.pop();
+		for (auto [b, x] : g[a]) if (!us1.count(b))
 		{
-			int ne = p.first;
-			if (!vis[ne])
-			{ 
-				vis[ne] = true;
-				q.push(ne);
+			us1.insert(b);
+			q.push(b);
+		}
+	}
+
+	set < int > us2 {n-1};
+	q.push(n-1);
+	while(!q.empty())
+	{
+		int a = q.front();
+		q.pop();
+		for (int b : r[a]) if (!us2.count(b))
+		{
+			us2.insert(b);
+			q.push(b);
+		}
+	}
+
+	vector < ll > D(n, -1ll<<60);
+	D[0] = 0;
+	bool ok = false;
+	int it = 0;
+	while(!ok && (it++ <= 2*n))
+	{
+		ok = true;
+		for (int a : us1)
+		{
+			for (auto [b, x] : g[a]) if (us2.count(b) && D[a] + x > D[b])
+			{
+				ok = false;
+				D[b] = D[a] + x;
 			}
 		}
 	}
-	if (vis[N-1]) cout << -1 << "\n";
-	else cout << D[N-1] << "\n";
+	
+	if (ok) cout << D[n-1] << "\n";
+	else cout << "-1\n";
 }
+

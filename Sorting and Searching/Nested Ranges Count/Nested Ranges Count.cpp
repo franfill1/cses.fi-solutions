@@ -56,7 +56,7 @@ int main()
 
 	vector < range > v;
 	vector < range > alt;
-	unordered_map < int , int > enc;
+	map < int , int > enc;
 	vector < int > c(n);
 
 	for (int i = 0; i < n; i++)
@@ -94,3 +94,4 @@ int main()
 	}
 	for (int b : c) cout << b << " ";
 }
+

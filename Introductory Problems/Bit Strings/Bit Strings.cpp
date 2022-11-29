@@ -1,17 +1,28 @@
-#include <bits/stdc++.h>
+#include<iostream>
+#define M 1000000007
 using namespace std;
+typedef long long ll;
+
+ll modpow(ll b, ll e)
+{
+	if (e == 0)
+	{
+		return 1;
+	}
+	ll temp = modpow(b, e/2);
+	ll ans = (temp * temp) % M;
+	if (e % 2 == 1)
+	{
+		ans *= b;
+		ans %= M;
+	}
+	return ans;
+}
 
 int main()
 {
-	int n;
-	cin >> n;
-	long long ans = 1;
-	for (long long i = 0; 1ll<<i <= n; i++)
-	{
-		if (n & 1ll<<i) ans *= p;
-		p *= p;
-		p %= (long long)1e9 + 7;
-		ans %= (long long)1e9 + 7;
-	}
-	cout << ans;
+	ll N;
+	cin >> N;
+	cout << modpow(2, N) << "\n";
 }
+

@@ -48,3 +48,4 @@ int main()
 	cout << ans << "\n";
 	for (int r : id) cout << r << " ";
 }
+

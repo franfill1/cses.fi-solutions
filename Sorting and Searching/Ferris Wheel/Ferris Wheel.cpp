@@ -13,8 +13,10 @@ int main()
 	sort(p.begin(), p.end());
 
 	int l = 0;
+	int ans = 0;
 	for (int r = n-1; r >= l; r--)
 		if (l != r && p[r] + p[l] <= x) l++;
 	
 	cout << n-l;
 }
+

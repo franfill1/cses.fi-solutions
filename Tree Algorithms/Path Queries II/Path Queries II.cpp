@@ -200,6 +200,7 @@ struct HLD
 	
 	int update(int n, int v)
 	{
+		//cout << n << " " << tm[n] << "!\n";
 		val[n] = v;
 		if (begin[n] != n)
 		{
@@ -209,6 +210,7 @@ struct HLD
 	
 	int upto (int n, int l)
 	{
+		//cout << "upto" << n << " " << l << "\n";
 		int ans = INT_MIN;
 		while(n != l)
 		{
@@ -220,6 +222,7 @@ struct HLD
 			else
 			{
 				int b = max(tm[begin[n]], tm[l]);
+				//cout << b+1 << " " << tm[n]+1 << "!!\n";
 				ans = max(ans, S.get(b+1, tm[n]+1));
 				if (tm[begin[n]] < tm[l])
 				{
@@ -274,4 +277,5 @@ int main()
 		}
 	}
 }
+
 

@@ -46,3 +46,4 @@ int main()
 	}
 	for (bool b : c) cout << b << " ";
 }
+

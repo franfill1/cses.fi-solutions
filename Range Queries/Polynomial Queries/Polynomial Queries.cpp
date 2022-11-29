@@ -1,95 +1,86 @@
-#include<bits/stdc++.h>
+// https://cses.fi/problemset/task/1736
+#include <bits/stdc++.h>
 using namespace std;
-typedef long long ll;
+using LL = long long;
 
-struct segtree
-{
-	struct node
-	{
-		ll val=0, sum=0, inc=0, cnt=1;
-		node() {}
-	};
+LL GAUSS(LL x) { return x * (x + 1) / 2; }
 
-	vector < node > T;
-	int n;
-
-	segtree(vector < ll > &V)
-	{
-		n = 1; while(n < V.size()) n *= 2;
-		T.resize(n*2);
-		
-		for (int i = 0; i < V.size(); i++) T[i+n].val = V[i];
-		
-		for (int i = n-1; i; i--)
-		{
-			T[i].val = T[i*2].val + T[i*2+1].val;
-			T[i].cnt = T[i*2].cnt + T[i*2+1].cnt;
-		}
-	}
-
-	void propagate(int k)
-	{
-		T[k].val += T[k].sum * T[k].cnt;
-		T[k].val += T[k].inc * T[k].cnt * (T[k].cnt + 1) / 2;
-		if (k < n)
-		{
-			T[k*2].sum += T[k].sum;
-			T[k*2].inc += T[k].inc;
-			T[k*2+1].sum += T[k].sum + T[k*2].cnt*T[k].inc;
-			T[k*2+1].inc += T[k].inc;
-		}
-		T[k].sum = 0;
-		T[k].inc = 0;
-	}
-	
-	void increase(int a, int b, int k=1, int x=0, int y=-1)
-	{
-		if (y == -1) y = n;
-		if (a <= x && y <= b)
-		{
-			T[k].inc++;
-			T[k].sum += x-a;
-		}
-		propagate(k);
-		if (a <= x && y <= b) return;
-		if (y <= a || b <= x) return;
-		int m = (x+y)/2;
-		increase(a, b, k*2, x, m);
-		increase(a, b, k*2+1, m, y);
-		T[k].val = T[k*2].val + T[k*2+1].val;
-	}
-
-	ll get(int a, int b, int k=1, int x=0, int y=-1)
-	{
-		if (y == -1) y = n;
-		propagate(k);
-		if (a <= x && y <= b) return T[k].val;
-		if (b <= x || y <= a) return 0;
-		int m = (x+y)/2;
-		return get(a, b, k*2, x, m) + get(a, b, k*2+1, m, y);
-	}
+struct nd {
+    LL sum = 0;
+    LL inc = 0;
+    LL lazy = 0;
+    nd() {}
+    nd(LL _sum) : sum(_sum) {}
 };
+nd join(nd a, nd b) { return nd(a.sum + b.sum); }
 
-int main()
+LL N = 1;
+vector<nd> t;
+
+void prop(LL i, LL a, LL b) 
 {
-	int n, q;
-	cin >> n >> q;
-	vector < ll > V(n);
-	for (ll &x : V) cin >> x;
-
-	segtree seg(V);
-
-	while(q--)
-	{
-		int t, a, b;
-		cin >> t >> a >> b;
-		if (t == 1)
-		{
-			seg.increase(a-1, b);
-		}
-		else
-		{
-			cout << seg.get(a-1, b) << "\n";
-		}
+	t[i].sum += (b - a) * t[i].lazy;
+	if (i < N) {
+		t[i << 1    ].lazy += t[i].lazy;
+		t[i << 1 | 1].lazy += t[i].lazy;
 	}
+	t[i].lazy = 0;
+	t[i].sum += t[i].inc * GAUSS(b - a);
+	if (i < N) {
+		t[i << 1    ].inc += t[i].inc;
+		t[i << 1 | 1].inc += t[i].inc;
+		t[i << 1 | 1].lazy += t[i].inc * (b - a) / 2;
+	}
+	t[i].inc = 0;
 }
+
+void inc(int i, int a, int b, int l, int r) {
+    prop(i, a, b);
+    if (r <= a || b <= l)
+        return;
+    if (l <= a && b <= r) {
+        ++t[i].inc;
+        t[i].lazy += (a - l);
+        prop(i, a, b);
+    } else {
+        inc(i << 1    , a, (a + b) / 2, l, r);
+        inc(i << 1 | 1, (a + b) / 2, b, l, r);
+        t[i] = join(t[i << 1], t[i << 1 | 1]);
+    }
+}
+
+LL sum(int i, int a, int b, int l, int r) {
+    prop(i, a, b);
+    if (r <= a || b <= l)
+        return 0;
+    if (l <= a && b <= r)
+        return t[i].sum;
+    return sum(i << 1    , a, (a + b) / 2, l, r) + 
+           sum(i << 1 | 1, (a + b) / 2, b, l, r);
+}
+
+int main() {
+ios_base::sync_with_stdio(false);
+cin.tie(NULL);
+
+    int n, q;
+    cin >> n >> q;
+
+    for (; N < n; N <<= 1);
+    t.resize(2 * N);
+
+    for (int i = 0; i < n; ++i)
+        cin >> t[i + N].sum;
+    for (int i = N - 1; i > 0; --i)
+        t[i] = join(t[i << 1], t[i << 1 | 1]);
+
+    for (int x, a, b; q--;) {
+        cin >> x >> a >> b;
+		
+        if (x == 1)
+            inc(1, 0, N, a - 1, b);
+        else
+            cout << sum(1, 0, N, a - 1, b) << "\n";
+    }
+}
+

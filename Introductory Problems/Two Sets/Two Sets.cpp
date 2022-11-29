@@ -27,3 +27,4 @@ int main()
 			if (j >= i || j == temp - sum) cout << j << " ";
 	}
 }
+

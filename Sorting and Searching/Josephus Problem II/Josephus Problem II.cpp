@@ -22,3 +22,4 @@ int main()
 		if (n) p = (p + k) % n;
 	}
 }
+

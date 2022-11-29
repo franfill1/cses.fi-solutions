@@ -5,44 +5,26 @@ using namespace std;
 
 vector < int > coins;
 
-vector < vector < int > > memo;
-
 int main()
 {
-	int N, X;
+	int N, X, C;
 	cin >> N >> X;
 	
-	coins.resize(N);
-	for (int i = 0; i < N; i++)
-	{
-		cin >> coins[i];
-	}
+	vector < int > V (X+1, 0);
+	V[0] = 1;
 	
-	memo.resize(N+1, vector < int > (X + 1, -1));
-	
-	for (int x = 1; x <= X; x++)
+	while(N--)
 	{
-		memo[0][x] = 0;
-	}
-	
-	for (int n = 0; n <= N; n++)
-	{
-		memo[n][0] = 1;
-	}
-	
-	for (int n = 1; n <= N; n++)
-	{
+		cin >> C;
 		for (int x = 1; x <= X; x++)
 		{
-			memo[n][x] = memo[n-1][x];
-			if (x - coins[n-1] >= 0)
+			if (x - C >= 0)
 			{
-				memo[n][x] += memo[n][x - coins[n-1]];
+				V[x] += V[x - C];
+				V[x] %= M;
 			}
-			memo[n][x] %= M;
 		}
 	}
-	
-	cout << memo[N][X];
+	cout << V[X];
 }
 

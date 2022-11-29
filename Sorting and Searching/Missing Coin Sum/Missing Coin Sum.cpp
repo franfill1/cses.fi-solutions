@@ -19,3 +19,4 @@ int main()
 	}
 	cout << sum+1 << "\n";
 }
+

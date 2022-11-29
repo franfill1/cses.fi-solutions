@@ -116,3 +116,4 @@ int main()
 
 	for (ll a : sol) cout << a << "\n";
 }
+

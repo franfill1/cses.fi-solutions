@@ -9,42 +9,37 @@ typedef long long ll;
 vector < ll > ans;
 vector < vector < ll > > t;
 vector < ll > c;
-unordered_map < ll , ll > enc;
 
-
-unordered_set < int > dfs(ll n, ll f)
+set < int > dfs(ll n, ll f)
 {
-	unordered_set < int > b;
-	b.insert(enc[c[n]]);
+	set < int > b;
+	b.insert(c[n]);
 	for (ll ne : t[n])
 	{
 		if (ne != f)
 		{
-			unordered_set < int > c = dfs(ne, n);
-			merge(b.begin(), b.end(), c.begin(), c.end(), inserter(b, b.begin()));
+			set < int > c = dfs(ne, n);
+			if(c.size() > b.size()) swap(b, c);
+			for (int x : c) b.insert(x);
 		}
 	}
 	ans[n] = b.size();
 	return b;
 }
 
-main()
+int main()
 {
+	ios_base::sync_with_stdio(false);
+	cin.tie(0); cout.tie(0);
 	ll N;
 	cin >> N;
 	
 	t.resize(N);
 	c.resize(N);
 	
-	ll k = 0;
-	for (ll i = 0; i<  N; i++)
+	for (ll i = 0; i < N; i++)
 	{
 		cin >> c[i];
-		if (!enc.count(c[i]))
-		{
-			enc[c[i]] = k;
-			k++;
-		}
 	}
 	
 	for (ll i = 0; i < N-1; i++)
@@ -63,4 +58,5 @@ main()
 		cout << v << " ";
 	}
 }
+
 

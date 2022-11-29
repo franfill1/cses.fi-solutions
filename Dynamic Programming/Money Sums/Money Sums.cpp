@@ -33,3 +33,4 @@ int main()
 	for (int i = 1; i <= sum; i++)
 		if (c[i]) cout << i << " ";
 }
+

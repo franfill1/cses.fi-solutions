@@ -51,3 +51,4 @@ int main()
 		cout << s.get(a, b) << "\n";;
 	}
 }
+

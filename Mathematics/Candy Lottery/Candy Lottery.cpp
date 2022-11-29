@@ -15,3 +15,4 @@ int main()
 	}
 	cout << fixed << setprecision(6) << ans << "\n";
 }
+

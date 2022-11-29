@@ -1,134 +1,141 @@
 #include<bits/stdc++.h>
+#define int long long
 using namespace std;
-typedef long long ll;
 
 struct segtree
 {
 	struct node
 	{
-		ll val=0, cnt=1, sum=0, set;
-		bool toSet=false;
-		node(ll v) : val(v) {}
-		node() {}
+		int val=0, sum=0, set, siz=1;
+		bool toSet = false;
+		node(int _v) : val(_v){};
+		node() {};
 	};
 
-	int n;
 	vector < node > T;
+	int n;
 
-	segtree(vector < ll > &V)
+	segtree(vector < int > A)
 	{
-		n = 1; while(n < V.size()) n*=2;
-		T.resize(n*2);
-		for (int i = 0; i < V.size(); i++) T[i+n] = node(V[i]);
+		n = 1;
+		while(n < A.size()) n<<=1;
+		T.resize(n<<1);
+
+		for (int i = 0; i < A.size(); i++) 
+		{
+			T[i+n] = node(A[i]);
+		}
 		for (int i = n-1; i; i--) 
 		{
 			T[i].val = T[i*2].val + T[i*2+1].val;
-			T[i].cnt = T[i*2].cnt + T[i*2+1].cnt;
+			T[i].siz = T[i*2].siz + T[i*2+1].siz;
 		}
-	}
-
-	void copyValues(node a, node &b)
-	{
-		if (a.toSet)
-		{
-			b.sum = a.sum;
-			b.set = a.set;
-			b.toSet = a.toSet;
-		}
-		else b.sum += a.sum;
 	}
 
 	void propagate(int k)
 	{
-		if (T[k].toSet)
+		auto &[val, sum, set, siz, toSet] = T[k];
+		if (toSet)
 		{
-			T[k].val = T[k].cnt * T[k].set;
+			val = set * siz;
 		}
-		T[k].val += T[k].cnt * T[k].sum;
+		val += sum * siz;
+
 		if (k < n)
 		{
-			copyValues(T[k], T[k*2]);
-			copyValues(T[k], T[k*2+1]);
+			if (toSet)
+			{
+				T[k*2].toSet = 1;
+				T[k*2].set = T[k].set;
+				T[k*2].sum = 0;
+				T[k*2+1].toSet = 1;
+				T[k*2+1].set = T[k].set;
+				T[k*2+1].sum = 0;
+			}
+			T[k*2].sum += T[k].sum;
+			T[k*2+1].sum += T[k].sum;
 		}
-		T[k].toSet = false;
-		T[k].sum = 0;
+		sum = 0;
+		toSet = false;
 	}
 
-	void add(int a, int b, ll v, int k=1, int x=0, int y=-1)
+	void sum(int l, int r, int v, int k=1, int x=0, int y=-1)
 	{
-		if(y == -1) y = n;
-
-		if (a <= x && y <= b) T[k].sum += v;
+		if (y == -1) y = n;
+		if (l <= x && y <= r)
+		{
+			T[k].sum += v;
+		}
 		propagate(k);
-
-		if (a <= x && y <= b) return;
-		if (y <= a || b <= x) return;
-
+		if (l <= x && y <= r) return;
+		if (l >= y || x >= r) return;
 		int m = (x+y)/2;
-		add(a, b, v, k*2, x, m);
-		add(a, b, v, k*2+1, m, y);
+		sum(l, r, v, k*2, x, m);
+		sum(l, r, v, k*2+1, m, y);
 		T[k].val = T[k*2].val + T[k*2+1].val;
 	}
 
-	void set(int a, int b, ll v, int k=1, int x=0, int y=-1)
+	void set(int l, int r, int v, int k=1, int x=0, int y=-1)
 	{
-		if(y == -1) y = n;
-
-		if (a <= x && y <= b)
+		if (y == -1) y = n;
+		if (l <= x && y <= r)
 		{
+			T[k].sum = 0;
 			T[k].set = v;
 			T[k].toSet = true;
-			T[k].sum = 0;
 		}
 		propagate(k);
-
-		if (a <= x && y <= b) return;
-		if (y <= a || b <= x) return;
+		if (l <= x && y <= r) return;
+		if (l >= y || x >= r) return;
 		int m = (x+y)/2;
-		set(a, b, v, k*2, x, m);
-		set(a, b, v, k*2+1, m, y);
+		set(l, r, v, k*2, x, m);
+		set(l, r, v, k*2+1, m, y);
 		T[k].val = T[k*2].val + T[k*2+1].val;
 	}
 
-	ll get(int a, int b, int k=1, int x=0, int y=-1)
+	int get(int l, int r, int k=1, int x=0, int y=-1)
 	{
-		if(y == -1) y = n;
+		if (y == -1) y = n;
 		propagate(k);
-		if (a <= x && y <= b) return T[k].val;
-		if (y <= a || b <= x) return 0;
+		if (l <= x && y <= r) 
+		{
+			return T[k].val;
+		}
+		if (l >= y || x >= r) return 0;
 		int m = (x+y)/2;
-		return get(a, b, k*2, x, m) + get(a, b, k*2+1, m, y);
+		return get(l, r, k*2, x, m) + get(l, r, k*2+1, m, y);
 	}
 };
 
-int main()
+signed main()
 {
-	int n, m;
-	cin >> n >> m;
-	vector < ll > V(n);
-	for (ll &x : V) cin >> x;
+	int n, q;
+	cin >> n >> q;
+	vector < int > a(n);
+	for (int &v : a) cin >> v;
+	segtree seg(a);
 
-	segtree seg(V);
-	while(m--)
+	while(q--)
 	{
-		int q; cin >> q;
-		if (q == 1)
+		int t, a, b;
+		cin >> t >> a >> b;
+		a--;
+		if (t == 1)
 		{
-			int a, b; ll x;
-			cin >> a >> b >> x; a--;
-			seg.add(a, b, x);
+			int x;
+			cin >> x;
+			seg.sum(a, b, x);
 		}
-		else if (q == 2)
+		else if (t == 2)
 		{
-			int a, b; ll x;
-			cin >> a >> b >> x; a--;
+			int x;
+			cin >> x;
 			seg.set(a, b, x);
 		}
 		else
 		{
-			int a, b;
-			cin >> a >> b; a--;
 			cout << seg.get(a, b) << "\n";
 		}
 	}
 }
+

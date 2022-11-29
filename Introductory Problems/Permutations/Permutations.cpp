@@ -22,3 +22,4 @@ int main()
 	for (int i = 1; i*2-1 <= N; i++)
 		cout << i*2-1 << " ";
 }
+

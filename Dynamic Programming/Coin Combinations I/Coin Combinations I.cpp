@@ -1,49 +1,45 @@
-#include <bits/stdc++.h>
-#define M 1000000007
-
+#include<bits/stdc++.h>
 using namespace std;
 
-vector < int > coins;
-vector < int > memo;
+const int modulo = 1000000000 + 7;
+int n, ans = 0;
+vector < int > c;
+vector < long long > memo;
 
-int dp (int x)
-{
-	if (x < 0)
-	{
+long long solve (int x) {
+	if (x < 0) {
 		return 0;
 	}
-	else if (x == 0)
-	{
+	
+	if (x == 0) {
 		return 1;
 	}
-	else if (memo[x] != -1)
-	{
-		return memo[x];
+	if (memo[x] != -1) return memo[x];
+	
+	long long ans = 0;
+	for (int i = 0; i < n; i++) {
+		ans += solve(x - c[i]);
+		ans %= modulo;
 	}
-	else
-	{
-		memo[x] = 0;
-		for (int coin : coins)
-		{
-			memo[x] += dp(x - coin);
-			memo[x] %= M;
-		}
-		return memo[x];
-	}
+	return memo[x] = ans;
 }
 
-int main()
-{
-	int N, X;
-	cin >> N >> X;
+int main () {
 	
-	coins.resize(N);
-	memo.resize(X+1, -1);
-	for (int i = 0; i < N; i++)
-	{
-		cin >> coins[i];
+	int x;
+	cin >> n >> x;
+	
+	memo.resize(x+1, -1);
+	c.resize(n);
+	
+	for (int i = 0; i < n; i++) {
+		cin >> c[i];
 	}
-	
-	cout << dp(X);
+    
+    sort(c.begin(), c.end());
+    
+    cout << solve(x);
+    
+return 0;
 }
 

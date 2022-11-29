@@ -31,3 +31,4 @@ int main()
 	memo.resize(n+1, vector < ll > (n+1, -1));
 	cout << dp(0, n, sum);
 }
+

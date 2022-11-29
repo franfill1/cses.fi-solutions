@@ -26,3 +26,4 @@ int main()
 		else cout << (v[n]?"first":"second") << "\n";
 	}
 }
+

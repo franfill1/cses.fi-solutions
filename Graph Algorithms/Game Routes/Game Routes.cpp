@@ -45,3 +45,4 @@ int main()
 	
 	cout << W[n-1];
 }
+

@@ -1,21 +1,27 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
 using namespace std;
 
 int main()
 {
-	int N;
-	cin >> N;
-	vector < int > V(N);
-	for (int i = 0; i < N; i++) cin >> V[i];
-
-	sort(V.begin(), V.end());
-	int ans = 0;
-	int l = 0;
-	for (int v : V)
-	{
-		if (v != l) ans++;
-		l = v;
+ 	int n;
+ 	cin >> n;
+ 	int x[n];
+ 	for (int i = 0; i < n; i++)
+ 	{
+ 		cin >> x[i];
 	}
 	
-	cout << ans;
+	sort(x, x+n);
+	int ans = 1;
+	for (int i = 1; i < n; i++)
+	{
+		if (x[i-1] != x[i])
+		{
+			ans++;
+		}
+	}
+	cout << ans << "\n";
 }
+
+

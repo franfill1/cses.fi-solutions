@@ -1,28 +1,31 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
 using namespace std;
-typedef long long ll;
 
 int main()
 {
-	ll n;
-	cin >> n;
+ 	int n;
+ 	cin >> n;
+ 	int a[n], d[n];
+ 	for (int i = 0; i < n; i++)
+ 	{
+ 		cin >> a[i] >> d[i];
+	}
 	
-	ll ans = 0;
-	vector < ll > v(n);
-	for (ll i = 0; i < n; i++)
+	long long ans = 0;
+	for (int i = 0; i < n; i++)
 	{
-		ll a, d;
-		cin >> a >> d;
-		ans += d;
-		v[i] = a;
+		ans += d[i];
 	}
-
-	sort(v.begin(), v.end());
-
-	ll t = 0;
-	for (ll i = 0; i < n; i++)
+	
+	sort(a, a+n);
+	long long t = 0;
+	for (int i = 0; i < n; i++)
 	{
-		t += v[i]; ans -= t;
+		t += a[i];
+		ans -= t;
 	}
-	cout << ans;
+	cout << ans << "\n";
 }
+
+

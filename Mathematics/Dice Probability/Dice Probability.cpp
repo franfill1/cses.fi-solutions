@@ -29,3 +29,4 @@ int main()
 	}
 	cout << setprecision(6) << fixed << ans << "\n"; 
 }
+

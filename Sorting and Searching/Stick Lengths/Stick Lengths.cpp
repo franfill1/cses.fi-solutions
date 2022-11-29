@@ -1,17 +1,24 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<algorithm>
 using namespace std;
 
 int main()
 {
-	int n;
-	cin >> n;
-	vector < int > v(n);
-	for (int &x : v) cin >> x;
+ 	int n;
+ 	cin >> n;
+ 	int p[n];
+ 	for (int i = 0; i < n; i++)
+ 	{
+ 		cin >> p[i];
+	}
 	
-	sort(v.begin(), v.end());
-
-	int t = v[v.size()/2];
+	sort(p, p+n);
 	long long ans = 0;
-	for (int x : v) ans += abs(x - t);
-	cout << ans;
+	for (int i = 0; i < n; i++)
+	{
+		ans += abs(p[i] - p[n/2]);
+	}
+	cout << ans << "\n";
 }
+
+

@@ -30,3 +30,4 @@ int main()
 	cout << memo[N];
 }
 
+

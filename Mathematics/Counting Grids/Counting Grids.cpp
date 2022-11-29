@@ -22,3 +22,4 @@ int main()
 	ll r4 = modpow(2, 4*t+(n%2));
 	cout << ((r1 + r2 + r3 + r4)%M * modpow(4, M-2))%M << "\n";
 }
+

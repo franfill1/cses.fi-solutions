@@ -40,3 +40,4 @@ int main()
 	}
 	cout << b << "\n";
 }
+

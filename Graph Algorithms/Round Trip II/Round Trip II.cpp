@@ -60,3 +60,4 @@ int main()
 
 	cout << "IMPOSSIBLE\n";
 }
+

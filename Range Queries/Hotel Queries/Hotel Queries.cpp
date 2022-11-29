@@ -58,3 +58,4 @@ int main()
 		seg.add(i, -r);
 	}
 }
+

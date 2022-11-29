@@ -1,20 +1,21 @@
-#include<bits/stdc++.h>
+#include<iostream>
+#include<vector>
 #define M 1000000007
 using namespace std;
 typedef long long ll;
- 
+
 ll modpow(ll b, ll e)
 {
 	if (e==0) return 1;
 	ll t = modpow(b, e/2);
 	return ((t*t)%M * (e%2?b:1))%M;
 }
- 
+
 ll inv(ll n)
 {
 	return modpow(n, M-2);
 }
- 
+
 int main()
 {
 	vector < ll > f(2000001,1);
@@ -32,3 +33,4 @@ int main()
 		cout << (((f[n*2]*inv(f[n]))%M * inv(f[n]))%M * inv(n+1))%M << endl;
 	}
 }
+

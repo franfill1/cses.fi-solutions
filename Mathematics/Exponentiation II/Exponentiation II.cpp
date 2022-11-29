@@ -21,3 +21,4 @@ int main()
 		cout << modpow(a, modpow(b, c, M-1), M) << "\n";
 	}
 }
+

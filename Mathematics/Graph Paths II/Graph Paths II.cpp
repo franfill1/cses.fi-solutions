@@ -61,3 +61,4 @@ int main()
 	b = modpow(b, k);
 	cout << (b[0][n-1] == 1ll<<60 ? -1 : b[0][n-1]) << "\n";
 }
+

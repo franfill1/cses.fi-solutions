@@ -1,225 +1,107 @@
 #include <bits/stdc++.h>
- 
-using namespace std;
- 
+
 typedef long long ll;
- 
-struct line;
-struct pt;
- 
-pt operator * (pt p, ll a);
-pt operator + (pt a, pt b);
-pt operator - (pt a, pt b);
-ll operator ^ (pt a, pt b);
-bool operator < (pt a, pt b);
- 
-istream& operator >>(istream& is, pt &p);
-ostream& operator <<(ostream& os, pt p);
- 
-struct pt
+using namespace std;
+
+struct point
 {
-	ll x = 0, y = 0;
-	pt() {};
-	pt(ll ix, ll iy) : x(ix) , y(iy) {};
-	
+	ll x=0, y=0;
+	point(ll x_, ll y_) : x(x_) , y(y_) {};
+	point(){};
+
+	void trans(point val)
+	{
+		x += val.x;
+		y += val.y;
+	}
+
 	void mirror()
 	{
-		mirrorX();
-		mirrorY();
-	}
-	
-	void mirrorX()
-	{
-		y = -y;
-	};
-	
-	void mirrorY()
-	{
 		x = -x;
-	};
-	
-	double norm()
-	{
-		return sqrt(x*x + y*y);
-	};
-	
-	void perturbate()
-	{
-		ll nx = x * 32786 + y * 95419, ny = x*4 + y * 5;
-		x = nx; y = ny;
+		y = -y;
 	}
 };
- 
+
 struct line
 {
-	pt a, b;
-	line() {};
-	line(pt ia, pt ib) : a(ia), b(ib) {};
-	void perturbate()
+	point a, b;
+	line(point a_, point b_)
 	{
-		a.perturbate();
-		b.perturbate();
-	}
-	
-	void sort()
-	{
-		if (b < a)
-		{
-			swap(a, b);
-		}
+		a = a_, b = b_;
 	}
 };
- 
-pt operator * (pt p, ll a)
+
+ll sign(ll val)
 {
-	return {p.x*a, p.y*a};
+	return (val>0)-(val<0);
 }
- 
-pt operator + (pt a, pt b)
+
+point operator +(point a, point b)
 {
-	return {a.x + b.x, a.y + b.y};
+	return point(a.x + b.x, a.y + b.y);
 }
- 
-pt operator - (pt a, pt b)
+
+point inverse(point p)
 {
-	return {a.x - b.x, a.y - b.y};
+	return point(-p.x, -p.y);
 }
- 
-ll operator ^ (pt a, pt b)
+
+point operator -(point a, point b)
+{
+	return (a+inverse(b));
+}
+
+ll operator ^(point a, point b)
 {
 	return a.x*b.y - a.y*b.x;
 }
- 
-bool operator == (pt a, pt b)
+
+ll side(line l, point p)
 {
-	return (a.x == b.x) && (a.y == b.y);
-}
- 
-bool operator < (pt a, pt b)
-{
-	return (a.x == b.x ? (a.y < b.y) : (a.x < b.x));
-}
- 
-bool operator <= (pt a, pt b)
-{
-	return a == b || a < b;
-}
- 
-/*bool operator > (pt a, pt b)
-{
-	return b < a;
-}*/
- 
-bool operator >= (pt a, pt b)
-{
-	return b <= a;
-}
- 
-istream& operator >>(istream& is, pt& p)
-{
-	is >> p.x >> p.y;
-	return is;
-}
- 
-istream& operator >>(istream& is, line& l)
-{
-	is >> l.a >> l.b;
-	return is;
-}
- 
-ostream& operator <<(ostream& os, pt p)
-{
-	os << "(" << p.x << ", " << p.y << ")";
-	return os;
-}
- 
-int sign(ll v)
-{
-	return (v > 0) - (v < 0);
-}
- 
-int side(line l, pt p)
-{
-	return sign((l.a-p)^(l.b-p));
-}
- 
-bool segOverlap(line r, line s)
-{
-	if (side(r, s.a) != 0 || side(r, s.b) != 0) return false;
-	r.perturbate(); s.perturbate();
-	r.sort(); s.sort();
-	if (r.a.x > s.b.x) swap(r, s);
-	return r.b.x >= s.a.x;
-}
- 
-bool segIntersect(line r, line s)
-{
-	return (side(r, s.a) != side(r, s.b) && side(s, r.a) != side(s, r.b));
+	return(sign((l.b-l.a)^(p-l.a)));
 }
 
-bool inside(line l, pt p)
+bool operator < (point a, point b)
 {
-	if (((l.a - p)^(l.b-p)) != 0) return false;
-	else
-	{
-		l.perturbate();
-		p.perturbate();
-		l.sort();
-		return (l.a.x <= p.x) && (p.x <= l.b.x);
-	}
+	return a.x==b.x?(a.y < b.y):(a.x<b.x);
 }
 
-ll dPolyArea(vector < pt > P)
+vector < point > lower(vector < point > v)
 {
-	ll ans = 0;
-	for (int i = 0; i < P.size(); i++)
+	sort(v.begin(), v.end());
+	vector < point > res;
+	res.push_back(v[0]);
+	res.push_back(v[1]);
+	for (int i = 2; i < v.size(); i++)
 	{
-		int j = (i+1)%P.size();
-		ans += P[i]^P[j];
+		while(res.size() >= 2 && side({res[res.size()-2], res.back()}, v[i]) == -1) res.pop_back();
+		res.push_back(v[i]);
 	}
-	return ans;
-}
-
-vector < pt > under(vector < pt > P)
-{
-	sort(P.begin(), P.end());
-	vector < pt > hull;
-	hull.push_back(P[0]);
-	hull.push_back(P[1]);
-	for (int i = 2; i < P.size(); i++)
-	{
-		while(hull.size() > 1 && side({hull.back(), hull[hull.size()-2]}, P[i]) == 1)
-		{
-			hull.pop_back();
-		}
-		hull.push_back(P[i]);
-	}
-	return hull;
+	return res;
 }
 
 int main()
 {
-	int N;
-	cin >> N;
-	vector < pt > P(N);
-	for (int i = 0; i < N; i++)
+	int n;
+	cin >> n;
+	vector < point > v(n);
+	for (auto &p : v)
 	{
-		cin >> P[i];
+		cin >> p.x >> p.y;
 	}
-	vector < pt > und = under(P);
-	for (int i = 0; i < N; i++)
+	vector < point > low = lower(v);
+	low.pop_back();
+	for (auto &p : v) p.mirror();
+	vector < point > up = lower(v);
+	up.pop_back();
+	cout << low.size() + up.size() << "\n";
+	for (auto &p : low)
 	{
-		P[i].mirror();
+		cout << p.x << " " << p.y << "\n";
 	}
-	vector < pt > ov = under(P);
-	cout << und.size() + ov.size() - 2 << "\n";
-	for (int i = 0; i < und.size()-1; i++)
+	for (auto &p : up)
 	{
-		cout << und[i].x << " " << und[i].y << "\n";
-	}
-	for (int i = 0; i < ov.size()-1; i++)
-	{
-		cout << -ov[i].x << " " << -ov[i].y << "\n";
+		cout << -p.x << " " << -p.y << "\n";
 	}
 }
 

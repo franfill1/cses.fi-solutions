@@ -119,3 +119,4 @@ int main()
 		cout << edge.second+1 << " " << edge.first+1 << "\n";
 	}
 }
+
