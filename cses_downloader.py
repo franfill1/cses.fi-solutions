@@ -86,10 +86,11 @@ class Task:
     memory_limit: int | None
     submissions: list[Submission, int, str] | None
 
-    def __init__(self, cses_id: str, title: str | None = None,
-                 status: str | None = None):
+    def __init__(self, cses_id: str, category: str | None,
+                 title: str | None = None, status: str | None = None):
         self.cses_id = cses_id
         self.status = status
+        self.category = category
         self.title = title
 
     def download(self):
@@ -164,9 +165,10 @@ def get_tasks() -> list[Task]:
     r = s.get("https://cses.fi/problemset/")
     html_doc = r.text
     soup = BeautifulSoup(html_doc, "html.parser")
+    content = list(soup.find("div", class_="content").children)
     tasks_tags = soup.find_all("li", class_="task")
 
-    def parse_task(tag) -> tuple[Task, str, str]:
+    def parse_task(tag, category) -> Task:
         task_id = tag.a["href"].split("/")[-1]
         title = str(tag.a.string)
         icon = tag.find("span", class_="icon")
@@ -175,9 +177,15 @@ def get_tasks() -> list[Task]:
             status = "ACCEPTED"
         elif "zero" in icon["class"]:
             status = "ZERO"
-        return Task(task_id, title, status)
+        return Task(task_id, category, title, status)
 
-    tasks = [parse_task(tag) for tag in tasks_tags]
+    tasks = []
+    i = 2
+    while content[i].name == "h2":
+        category = content[i].string
+        tasks_tags = content[i+1].find_all("li", class_="task")
+        tasks += [parse_task(tag, category) for tag in tasks_tags]
+        i += 2
     return tasks
 
 
@@ -185,10 +193,17 @@ if __name__ == "__main__":
     login(input("Username: "), getpass.getpass())
     solved_tasks = [task for task in get_tasks() if task.status == "ACCEPTED"]
     for task in solved_tasks:
+        filename = f"{task.category}/{task.title}/{task.title}.cpp"
+
+        if (os.path.exists(filename)):
+            with open(filename, "r") as file:
+                code = file.read()
+            if re.search(r"Result: +ACCEPTED", code):
+                continue
+
+        print(f"{task.category} / {task.cses_id} - {task.title}")
         task.download()
         code = task.get_last_solution().download().to_string()
-        filename = f"{task.category}/{task.title}/{task.title}.cpp"
         os.makedirs(os.path.split(filename)[0], exist_ok=True)
-        print(f"{task.category} / {task.cses_id} - {task.title}")
         with open(filename, "w") as file:
             file.write(code)
