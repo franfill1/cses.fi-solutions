@@ -1,3 +1,10 @@
+/*
+Task:              2137 Beautiful Subgrids
+Sender:            franfill
+Submission time:   2022-11-29 20:02:18
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #pragma GCC target("popcnt")
 using namespace std;
@@ -32,4 +39,3 @@ int main()
 		}
 	cout << ans << "\n";
 }
-

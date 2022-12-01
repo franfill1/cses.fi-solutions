@@ -1,3 +1,10 @@
+/*
+Task:              1723 Graph Paths I
+Sender:            franfill
+Submission time:   2021-11-30 23:17:15
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -62,4 +69,3 @@ int main()
 	b = modpow(b, k);
 	cout << b[0][n-1] << "\n";
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1680 Longest Flight Route
+Sender:            franfill
+Submission time:   2021-07-21 16:38:56
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -70,4 +77,3 @@ int main()
 		}
 	}
 }
-

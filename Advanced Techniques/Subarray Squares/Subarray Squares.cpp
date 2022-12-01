@@ -1,3 +1,10 @@
+/*
+Task:              2086 Subarray Squares
+Sender:            franfill
+Submission time:   2022-10-17 19:48:54
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -47,4 +54,3 @@ int main()
 	}
 	cout << dp[n] << "\n";
 }
-

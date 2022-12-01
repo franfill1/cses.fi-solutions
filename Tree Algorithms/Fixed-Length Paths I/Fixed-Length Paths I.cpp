@@ -1,3 +1,10 @@
+/*
+Task:              2080 Fixed-Length Paths I
+Sender:            franfill
+Submission time:   2021-06-03 20:46:01
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -174,4 +181,3 @@ int main()
 	
 	cout << C.ans << "\n";
 }
-

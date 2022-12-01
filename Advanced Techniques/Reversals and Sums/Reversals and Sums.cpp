@@ -1,3 +1,10 @@
+/*
+Task:              2074 Reversals and Sums
+Sender:            franfill
+Submission time:   2022-10-20 14:02:10
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <vector>
 #include<iostream>
 using namespace std;
@@ -133,5 +140,4 @@ int main()
 		root = merge(root, R);
 	}
 }
-
 

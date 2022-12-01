@@ -1,3 +1,10 @@
+/*
+Task:              2076 Necessary Roads
+Sender:            franfill
+Submission time:   2022-04-28 16:26:24
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -42,4 +49,3 @@ int main()
 	cout << ans.size() << "\n";
 	for (auto [x, y] : ans) cout << x+1 << " " << y+1 << "\n";
 }
-

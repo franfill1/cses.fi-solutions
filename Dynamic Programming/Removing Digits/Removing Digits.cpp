@@ -1,3 +1,10 @@
+/*
+Task:              1637 Removing Digits
+Sender:            franfill
+Submission time:   2021-03-17 19:25:04
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -29,5 +36,4 @@ int main()
 	
 	cout << memo[N];
 }
-
 

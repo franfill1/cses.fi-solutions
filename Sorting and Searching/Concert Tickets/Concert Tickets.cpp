@@ -1,3 +1,10 @@
+/*
+Task:              1091 Concert Tickets
+Sender:            franfill
+Submission time:   2021-07-02 15:39:10
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -31,4 +38,3 @@ int main()
 		cout << "\n";
 	}
 }
-

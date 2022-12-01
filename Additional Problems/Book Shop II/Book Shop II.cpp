@@ -1,3 +1,10 @@
+/*
+Task:              1159 Book Shop II
+Sender:            franfill
+Submission time:   2021-12-04 10:35:14
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -35,4 +42,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

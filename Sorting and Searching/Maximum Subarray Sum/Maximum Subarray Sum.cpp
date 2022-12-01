@@ -1,3 +1,10 @@
+/*
+Task:              1643 Maximum Subarray Sum
+Sender:            franfill
+Submission time:   2021-11-03 15:19:37
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<iostream>
 using namespace std;
 
@@ -27,5 +34,4 @@ int main()
 	}
 	cout << ans << "\n";
 }
-
 

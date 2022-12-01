@@ -1,3 +1,10 @@
+/*
+Task:              1651 Range Update Queries
+Sender:            franfill
+Submission time:   2021-07-31 13:48:33
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -74,4 +81,3 @@ int main()
 		}
 	}
 }
-

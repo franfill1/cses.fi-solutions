@@ -1,3 +1,10 @@
+/*
+Task:              1622 Creating Strings
+Sender:            franfill
+Submission time:   2021-06-30 11:15:42
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,4 +26,3 @@ int main()
 	cout << sol.size() << "\n";
 	for (string c : sol) cout << c << "\n";
 }
-

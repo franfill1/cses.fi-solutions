@@ -1,3 +1,10 @@
+/*
+Task:              2220 Counting Numbers
+Sender:            franfill
+Submission time:   2022-04-28 11:31:29
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -57,4 +64,3 @@ int main()
 	if (a!= b && bok) ans++;
 	cout << ans << "\n";
 }
-

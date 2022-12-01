@@ -1,3 +1,10 @@
+/*
+Task:              2073 Substring Reversals
+Sender:            franfill
+Submission time:   2022-10-20 13:31:59
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
  
@@ -123,5 +130,4 @@ int main()
 	}
 	cout << root << "\n";
 }
-
 

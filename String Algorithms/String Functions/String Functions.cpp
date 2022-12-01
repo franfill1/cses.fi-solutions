@@ -1,3 +1,10 @@
+/*
+Task:              2107 String Functions
+Sender:            franfill
+Submission time:   2022-10-12 22:29:01
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -43,4 +50,3 @@ int main()
 	cout << "\n";
 	
 }
-

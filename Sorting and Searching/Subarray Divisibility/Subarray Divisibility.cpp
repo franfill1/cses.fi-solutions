@@ -1,3 +1,10 @@
+/*
+Task:              1662 Subarray Divisibility
+Sender:            franfill
+Submission time:   2021-07-17 12:57:16
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -20,4 +27,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

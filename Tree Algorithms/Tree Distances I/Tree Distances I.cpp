@@ -1,3 +1,10 @@
+/*
+Task:              1132 Tree Distances I
+Sender:            franfill
+Submission time:   2021-02-08 13:51:18
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -96,5 +103,4 @@ int main()
 		cout << mDe[i].first.first << " ";
 	}
 }
-
 

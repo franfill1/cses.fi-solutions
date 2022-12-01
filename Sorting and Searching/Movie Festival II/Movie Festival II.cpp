@@ -1,3 +1,10 @@
+/*
+Task:              1632 Movie Festival II
+Sender:            franfill
+Submission time:   2021-07-17 18:34:06
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -27,4 +34,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1202 Investigation
+Sender:            franfill
+Submission time:   2021-07-21 17:49:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -74,4 +81,3 @@ int main()
 
 	cout << D[n-1] << " " << cnt[n-1] << " " << mi[n-1] << " " << ma[n-1] << "\n";
 }
-

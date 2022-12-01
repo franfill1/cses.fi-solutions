@@ -1,3 +1,10 @@
+/*
+Task:              1193 Labyrinth
+Sender:            franfill
+Submission time:   2021-02-26 22:54:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -79,5 +86,4 @@ int main()
 	}
 
 }
-
 

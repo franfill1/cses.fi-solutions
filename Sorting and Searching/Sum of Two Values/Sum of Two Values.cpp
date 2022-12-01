@@ -1,3 +1,10 @@
+/*
+Task:              1640 Sum of Two Values
+Sender:            franfill
+Submission time:   2021-07-02 15:54:09
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -30,4 +37,3 @@ int main()
 	}
 	cout << "IMPOSSIBLE";
 }
-

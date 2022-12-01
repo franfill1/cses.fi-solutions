@@ -1,3 +1,10 @@
+/*
+Task:              1621 Distinct Numbers
+Sender:            franfill
+Submission time:   2021-11-03 15:16:45
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<iostream>
 #include<algorithm>
 using namespace std;
@@ -23,5 +30,4 @@ int main()
 	}
 	cout << ans << "\n";
 }
-
 

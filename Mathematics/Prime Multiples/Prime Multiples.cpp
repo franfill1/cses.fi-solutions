@@ -1,3 +1,10 @@
+/*
+Task:              2185 Prime Multiples
+Sender:            franfill
+Submission time:   2021-11-26 13:40:46
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -31,4 +38,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

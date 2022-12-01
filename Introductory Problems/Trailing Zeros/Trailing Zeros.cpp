@@ -1,3 +1,10 @@
+/*
+Task:              1618 Trailing Zeros
+Sender:            franfill
+Submission time:   2021-06-29 23:32:45
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -14,4 +21,3 @@ int main()
 	}
 	cout << ans;
 }
-

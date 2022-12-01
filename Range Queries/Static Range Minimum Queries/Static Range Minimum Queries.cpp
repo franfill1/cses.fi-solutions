@@ -1,3 +1,10 @@
+/*
+Task:              1647 Static Range Minimum Queries
+Sender:            franfill
+Submission time:   2021-07-31 12:58:33
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -51,4 +58,3 @@ int main()
 		cout << s.get(a, b) << "\n";;
 	}
 }
-

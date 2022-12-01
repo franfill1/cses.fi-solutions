@@ -1,3 +1,10 @@
+/*
+Task:              1628 Meet in the Middle
+Sender:            franfill
+Submission time:   2022-10-18 09:35:42
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <iostream>
 #include <algorithm>
 using namespace std;
@@ -55,5 +62,4 @@ main()
 	}
 	cout << ans << "\n";
 }
-
 

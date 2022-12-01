@@ -1,3 +1,10 @@
+/*
+Task:              1131 Tree Diameter
+Sender:            franfill
+Submission time:   2021-02-08 13:00:19
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -50,5 +57,4 @@ int main()
 	}
 	cout << a;
 }
-
 

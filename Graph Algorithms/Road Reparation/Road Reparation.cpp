@@ -1,3 +1,10 @@
+/*
+Task:              1675 Road Reparation
+Sender:            franfill
+Submission time:   2021-07-26 20:38:58
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -79,4 +86,3 @@ int main()
 	if (t < n) cout << "IMPOSSIBLE\n";
 	else cout << ans << "\n";
 }
-

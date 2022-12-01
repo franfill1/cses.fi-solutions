@@ -1,3 +1,10 @@
+/*
+Task:              1648 Dynamic Range Sum Queries
+Sender:            franfill
+Submission time:   2021-07-31 13:06:47
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -70,4 +77,3 @@ int main()
 		}
 	}
 }
-

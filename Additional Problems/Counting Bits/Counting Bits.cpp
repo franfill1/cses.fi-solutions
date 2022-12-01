@@ -1,3 +1,10 @@
+/*
+Task:              1146 Counting Bits
+Sender:            franfill
+Submission time:   2022-11-20 09:54:01
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 using ll=long long;
@@ -17,4 +24,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

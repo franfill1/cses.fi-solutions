@@ -1,3 +1,10 @@
+/*
+Task:              1728 Inversion Probability
+Sender:            franfill
+Submission time:   2022-01-29 14:42:42
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long double ld;
@@ -25,4 +32,3 @@ int main()
 	}
 	cout << fixed << setprecision(6) << ans << "\n";
 }
-

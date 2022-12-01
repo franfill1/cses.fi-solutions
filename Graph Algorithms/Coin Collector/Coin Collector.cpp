@@ -1,3 +1,10 @@
+/*
+Task:              1686 Coin Collector
+Sender:            franfill
+Submission time:   2021-07-26 22:52:19
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -126,4 +133,3 @@ int main()
 
 	cout << ans << "\n";
 }
-

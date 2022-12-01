@@ -1,3 +1,10 @@
+/*
+Task:              1092 Two Sets
+Sender:            franfill
+Submission time:   2021-06-29 21:37:00
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -27,4 +34,3 @@ int main()
 			if (j >= i || j == temp - sum) cout << j << " ";
 	}
 }
-

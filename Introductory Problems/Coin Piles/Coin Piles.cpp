@@ -1,3 +1,10 @@
+/*
+Task:              1754 Coin Piles
+Sender:            franfill
+Submission time:   2021-06-29 23:37:42
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -24,4 +31,3 @@ int main()
 		}
 	}
 }
-

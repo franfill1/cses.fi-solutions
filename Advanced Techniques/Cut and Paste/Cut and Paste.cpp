@@ -1,3 +1,10 @@
+/*
+Task:              2072 Cut and Paste
+Sender:            franfill
+Submission time:   2022-10-20 11:57:42
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -109,6 +116,5 @@ int main()
 	}
 	cout << root << "\n";
 }
-
 
 

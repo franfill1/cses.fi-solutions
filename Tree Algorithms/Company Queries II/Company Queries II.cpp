@@ -1,3 +1,10 @@
+/*
+Task:              1688 Company Queries II
+Sender:            franfill
+Submission time:   2022-09-19 21:31:05
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 #define pb push_back
 #define pii pair < int, int >
@@ -47,4 +54,3 @@ int main()
         cout << lca(u, v, LOG, depth, up) << "\n";
     }
 }
-

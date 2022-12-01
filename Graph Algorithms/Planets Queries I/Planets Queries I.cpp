@@ -1,3 +1,10 @@
+/*
+Task:              1750 Planets Queries I
+Sender:            franfill
+Submission time:   2021-07-21 18:14:31
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -55,4 +62,3 @@ int main()
 		cout << calc.lift(x, k)+1 << "\n";
 	}
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              2428 Subarray Distinct Values
+Sender:            franfill
+Submission time:   2021-07-17 13:05:17
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -29,4 +36,3 @@ int main()
 	}
 	cout << ans;
 }
-

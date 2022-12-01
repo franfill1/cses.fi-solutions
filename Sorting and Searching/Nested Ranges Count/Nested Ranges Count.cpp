@@ -1,3 +1,10 @@
+/*
+Task:              2169 Nested Ranges Count
+Sender:            franfill
+Submission time:   2021-12-24 15:56:26
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -94,4 +101,3 @@ int main()
 	}
 	for (int b : c) cout << b << " ";
 }
-

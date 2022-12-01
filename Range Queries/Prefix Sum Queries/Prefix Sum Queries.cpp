@@ -1,3 +1,10 @@
+/*
+Task:              2166 Prefix Sum Queries
+Sender:            franfill
+Submission time:   2021-08-02 18:48:33
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -104,4 +111,3 @@ int main()
 		}
 	}
 }
-

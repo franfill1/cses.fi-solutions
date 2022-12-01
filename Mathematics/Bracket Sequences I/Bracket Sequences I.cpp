@@ -1,3 +1,10 @@
+/*
+Task:              2064 Bracket Sequences I
+Sender:            franfill
+Submission time:   2021-11-29 12:34:17
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<iostream>
 #include<vector>
 #define M 1000000007
@@ -33,4 +40,3 @@ int main()
 		cout << (((f[n*2]*inv(f[n]))%M * inv(f[n]))%M * inv(n+1))%M << endl;
 	}
 }
-

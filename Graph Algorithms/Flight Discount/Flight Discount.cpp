@@ -1,3 +1,10 @@
+/*
+Task:              1195 Flight Discount
+Sender:            franfill
+Submission time:   2021-07-21 12:34:00
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -68,4 +75,3 @@ int main()
 
 	cout << D[1][n-1];
 }
-

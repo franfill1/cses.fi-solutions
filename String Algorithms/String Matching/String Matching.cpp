@@ -1,3 +1,10 @@
+/*
+Task:              1753 String Matching
+Sender:            franfill
+Submission time:   2021-05-29 18:51:22
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -47,5 +54,4 @@ int main()
 	}
 	cout << ans << "\n";
 }
-
 

@@ -1,3 +1,10 @@
+/*
+Task:              2216 Collecting Numbers
+Sender:            franfill
+Submission time:   2021-07-02 22:38:45
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -23,4 +30,3 @@ int main()
 
 	cout << ans;
 }
-

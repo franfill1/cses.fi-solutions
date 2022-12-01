@@ -1,3 +1,10 @@
+/*
+Task:              1081 Common Divisors
+Sender:            franfill
+Submission time:   2021-11-25 11:13:08
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define MAXX 1000001
 using namespace std;
@@ -29,4 +36,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

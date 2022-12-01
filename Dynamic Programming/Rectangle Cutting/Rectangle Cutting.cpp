@@ -1,3 +1,10 @@
+/*
+Task:              1744 Rectangle Cutting
+Sender:            franfill
+Submission time:   2021-07-19 15:26:36
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -33,4 +40,3 @@ int main()
 	memo.resize(b+1, vector < int > (b+1, -1));
 	cout << dp(a, b) << "\n";
 }
-

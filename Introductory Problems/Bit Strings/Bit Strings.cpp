@@ -1,3 +1,10 @@
+/*
+Task:              1617 Bit Strings
+Sender:            franfill
+Submission time:   2022-01-18 17:18:08
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<iostream>
 #define M 1000000007
 using namespace std;
@@ -25,4 +32,3 @@ int main()
 	cin >> N;
 	cout << modpow(2, N) << "\n";
 }
-

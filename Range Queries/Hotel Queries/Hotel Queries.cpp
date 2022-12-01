@@ -1,3 +1,10 @@
+/*
+Task:              1143 Hotel Queries
+Sender:            franfill
+Submission time:   2021-07-31 14:42:12
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -58,4 +65,3 @@ int main()
 		seg.add(i, -r);
 	}
 }
-

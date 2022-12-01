@@ -1,3 +1,10 @@
+/*
+Task:              2084 Monster Game I
+Sender:            franfill
+Submission time:   2022-10-20 21:00:53
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -152,4 +159,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

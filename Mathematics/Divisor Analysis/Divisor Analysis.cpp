@@ -1,3 +1,10 @@
+/*
+Task:              2182 Divisor Analysis
+Sender:            franfill
+Submission time:   2021-11-25 12:56:45
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -69,4 +76,3 @@ int main()
 	}
 	cout << cnt << " " << sum << " " << pro << "\n";
 }
-

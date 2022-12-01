@@ -1,3 +1,10 @@
+/*
+Task:              1669 Round Trip
+Sender:            franfill
+Submission time:   2022-02-05 13:23:08
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -81,5 +88,4 @@ int main()
 		}
 	}
 }
-
 

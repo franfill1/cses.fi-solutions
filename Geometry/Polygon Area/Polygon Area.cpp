@@ -1,3 +1,10 @@
+/*
+Task:              2191 Polygon Area
+Sender:            franfill
+Submission time:   2021-05-22 21:35:27
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -172,5 +179,4 @@ int main()
 	}
 	cout << abs(dPolyArea(P));
 }
-
 

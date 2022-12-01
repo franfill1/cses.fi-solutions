@@ -1,3 +1,10 @@
+/*
+Task:              2193 Polygon Lattice Points
+Sender:            franfill
+Submission time:   2022-10-13 16:41:29
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -39,4 +46,3 @@ int main()
 	ll a = (A-b)/2 + 1;
 	cout << a << " " << b << "\n";
 }
-

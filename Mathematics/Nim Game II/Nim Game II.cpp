@@ -1,3 +1,10 @@
+/*
+Task:              1098 Nim Game II
+Sender:            franfill
+Submission time:   2022-01-28 20:06:54
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -18,4 +25,3 @@ int main()
 		cout << (ans?"first":"second") << "\n";
 	}
 }
-

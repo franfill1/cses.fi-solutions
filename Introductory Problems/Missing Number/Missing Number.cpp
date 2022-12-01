@@ -1,3 +1,10 @@
+/*
+Task:              1083 Missing Number
+Sender:            franfill
+Submission time:   2021-06-03 21:19:09
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -17,5 +24,4 @@ int main()
 	}
 	cout << X << "\n";
 }
-
 

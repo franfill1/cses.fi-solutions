@@ -1,3 +1,10 @@
+/*
+Task:              1085 Array Division
+Sender:            franfill
+Submission time:   2021-07-17 13:11:29
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -40,4 +47,3 @@ int main()
 	}
 	cout << b << "\n";
 }
-

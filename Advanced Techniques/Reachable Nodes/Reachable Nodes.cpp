@@ -1,3 +1,10 @@
+/*
+Task:              2138 Reachable Nodes
+Sender:            franfill
+Submission time:   2022-11-29 20:54:35
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #pragma GCC target("popcnt")
 using namespace std;
@@ -37,4 +44,3 @@ int main()
 		cout << ans[i] << " ";
 	cout << "\n";
 }
-

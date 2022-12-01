@@ -1,3 +1,10 @@
+/*
+Task:              1732 Finding Borders
+Sender:            franfill
+Submission time:   2021-05-29 19:03:22
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -52,5 +59,4 @@ int main()
 		pq.pop();
 	}
 }
-
 

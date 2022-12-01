@@ -1,3 +1,10 @@
+/*
+Task:              1690 Hamiltonian Flights
+Sender:            franfill
+Submission time:   2021-07-30 17:11:31
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #pragma gcc optimize('O3')
 using namespace std;
@@ -48,4 +55,3 @@ int main()
 	
 	cout << ans << "\n";
 }
-

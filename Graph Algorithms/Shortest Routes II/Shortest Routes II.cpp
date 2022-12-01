@@ -1,3 +1,10 @@
+/*
+Task:              1672 Shortest Routes II
+Sender:            franfill
+Submission time:   2021-07-21 12:12:30
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -38,4 +45,3 @@ int main()
 		cout << (D[a][b] == 1ll<<60 ? -1 : D[a][b])<< "\n";;
 	}
 }
-

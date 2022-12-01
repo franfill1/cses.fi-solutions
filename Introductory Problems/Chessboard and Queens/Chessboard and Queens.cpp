@@ -1,3 +1,10 @@
+/*
+Task:              1624 Chessboard and Queens
+Sender:            franfill
+Submission time:   2021-06-30 11:47:04
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -31,4 +38,3 @@ int main()
 	count(0);
 	cout << ans;
 }
-

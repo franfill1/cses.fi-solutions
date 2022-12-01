@@ -1,3 +1,10 @@
+/*
+Task:              2134 Path Queries II
+Sender:            franfill
+Submission time:   2021-05-31 22:06:45
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -277,5 +284,4 @@ int main()
 		}
 	}
 }
-
 

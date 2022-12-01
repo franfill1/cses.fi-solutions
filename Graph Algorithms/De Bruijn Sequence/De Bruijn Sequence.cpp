@@ -1,3 +1,10 @@
+/*
+Task:              1692 De Bruijn Sequence
+Sender:            franfill
+Submission time:   2021-07-26 23:29:45
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -50,4 +57,3 @@ int main()
 		ans.pop();
 	}
 }
-

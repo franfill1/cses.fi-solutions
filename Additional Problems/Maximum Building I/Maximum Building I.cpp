@@ -1,3 +1,10 @@
+/*
+Task:              1147 Maximum Building I
+Sender:            franfill
+Submission time:   2022-04-28 16:53:44
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -42,4 +49,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

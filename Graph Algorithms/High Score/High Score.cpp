@@ -1,3 +1,10 @@
+/*
+Task:              1673 High Score
+Sender:            franfill
+Submission time:   2022-02-20 19:10:55
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -62,4 +69,3 @@ int main()
 	if (ok) cout << D[n-1] << "\n";
 	else cout << "-1\n";
 }
-

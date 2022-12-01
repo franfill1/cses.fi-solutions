@@ -1,3 +1,10 @@
+/*
+Task:              2210 Counting Grids
+Sender:            franfill
+Submission time:   2021-11-29 16:17:58
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -22,4 +29,3 @@ int main()
 	ll r4 = modpow(2, 4*t+(n%2));
 	cout << ((r1 + r2 + r3 + r4)%M * modpow(4, M-2))%M << "\n";
 }
-

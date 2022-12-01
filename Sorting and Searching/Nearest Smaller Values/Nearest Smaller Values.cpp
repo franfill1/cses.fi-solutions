@@ -1,3 +1,10 @@
+/*
+Task:              1645 Nearest Smaller Values
+Sender:            franfill
+Submission time:   2021-07-17 00:55:34
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -20,4 +27,3 @@ int main()
 		s.push({el, i+1});
 	}
 }
-

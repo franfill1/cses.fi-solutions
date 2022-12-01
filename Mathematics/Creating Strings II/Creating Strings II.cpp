@@ -1,3 +1,10 @@
+/*
+Task:              1715 Creating Strings II
+Sender:            franfill
+Submission time:   2021-11-26 18:34:29
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 typedef long long ll;
@@ -32,4 +39,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

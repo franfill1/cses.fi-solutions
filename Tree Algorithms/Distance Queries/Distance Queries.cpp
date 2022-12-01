@@ -1,3 +1,10 @@
+/*
+Task:              1135 Distance Queries
+Sender:            franfill
+Submission time:   2021-02-08 18:26:57
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -99,6 +106,5 @@ int main()
 		cout << dep[aa] - dep[a] + dep[bb] - dep[a] << "\n"; 
 	}
 }
-
 
 

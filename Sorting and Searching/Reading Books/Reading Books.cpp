@@ -1,3 +1,10 @@
+/*
+Task:              1631 Reading Books
+Sender:            franfill
+Submission time:   2021-07-13 10:43:42
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<vector>
 #include<iostream>
 using namespace std;
@@ -20,4 +27,3 @@ int main()
 	
 	cout << max(ma*2, sum);
 }
-

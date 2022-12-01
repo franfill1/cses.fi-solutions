@@ -1,3 +1,10 @@
+/*
+Task:              1636 Coin Combinations II
+Sender:            franfill
+Submission time:   2021-08-29 20:19:59
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 #define M 1000000007
 
@@ -27,4 +34,3 @@ int main()
 	}
 	cout << V[X];
 }
-

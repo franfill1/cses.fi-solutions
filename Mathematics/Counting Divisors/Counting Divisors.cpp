@@ -1,3 +1,10 @@
+/*
+Task:              1713 Counting Divisors
+Sender:            franfill
+Submission time:   2021-11-25 10:50:08
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -20,4 +27,3 @@ int main()
 		cout << cnt << "\n";
 	}
 }
-

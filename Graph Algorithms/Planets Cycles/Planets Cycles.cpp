@@ -1,3 +1,10 @@
+/*
+Task:              1751 Planets Cycles
+Sender:            franfill
+Submission time:   2021-07-26 20:09:02
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -84,4 +91,3 @@ int main()
 	funcGraph g(next);
 	for (int i = 0; i < n; i++) cout << g.cycLen(i) << " ";
 }
-

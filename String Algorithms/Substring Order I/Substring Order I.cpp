@@ -1,3 +1,10 @@
+/*
+Task:              2108 Substring Order I
+Sender:            franfill
+Submission time:   2022-10-14 20:52:06
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -105,4 +112,3 @@ int main()
 			carry = d.longest_match(v[i], v[i+1]);
 	}
 }
-

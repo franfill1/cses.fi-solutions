@@ -1,3 +1,10 @@
+/*
+Task:              1684 Giant Pizza
+Sender:            franfill
+Submission time:   2021-07-26 22:23:38
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -148,4 +155,3 @@ int main()
 		cout << (val[i] ? '+' : '-') << " ";
 	}
 }
-

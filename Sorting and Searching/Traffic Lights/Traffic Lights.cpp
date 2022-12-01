@@ -1,3 +1,10 @@
+/*
+Task:              1163 Traffic Lights
+Sender:            franfill
+Submission time:   2021-07-03 00:04:27
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -27,4 +34,3 @@ int main()
 		cout << *(--it) << " ";
 	}
 }
-

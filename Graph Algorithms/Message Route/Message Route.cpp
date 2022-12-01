@@ -1,3 +1,10 @@
+/*
+Task:              1667 Message Route
+Sender:            franfill
+Submission time:   2021-02-02 11:01:55
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -57,5 +64,4 @@ int main()
 		}
 	} 
 }
-
 

@@ -1,3 +1,10 @@
+/*
+Task:              2104 Pattern Positions
+Sender:            franfill
+Submission time:   2022-10-13 16:19:17
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -137,4 +144,3 @@ int main()
 			cout << tab.get(l, r)+1 << "\n";
 	}
 }
-

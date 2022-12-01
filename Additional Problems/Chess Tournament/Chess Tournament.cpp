@@ -1,3 +1,10 @@
+/*
+Task:              1697 Chess Tournament
+Sender:            franfill
+Submission time:   2022-10-24 16:27:43
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -47,4 +54,3 @@ int main()
 			pq.emplace(e, i);
 	}
 }
-

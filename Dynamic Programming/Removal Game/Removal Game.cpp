@@ -1,3 +1,10 @@
+/*
+Task:              1097 Removal Game
+Sender:            franfill
+Submission time:   2021-07-20 11:08:52
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -31,4 +38,3 @@ int main()
 	memo.resize(n+1, vector < ll > (n+1, -1));
 	cout << dp(0, n, sum);
 }
-

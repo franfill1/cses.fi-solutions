@@ -1,3 +1,10 @@
+/*
+Task:              2190 Line Segment Intersection
+Sender:            franfill
+Submission time:   2021-05-22 21:30:44
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -171,4 +178,3 @@ int main()
 		}
 	}
 }
-

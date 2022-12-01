@@ -1,3 +1,10 @@
+/*
+Task:              1634 Minimizing Coins
+Sender:            franfill
+Submission time:   2021-03-17 18:53:21
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 int INF = 1<<30;
@@ -50,5 +57,4 @@ int main()
 	
 	cout << (dp(X) == INF ? -1 : dp(X));
 }
-
 

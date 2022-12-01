@@ -1,3 +1,10 @@
+/*
+Task:              1071 Number Spiral
+Sender:            franfill
+Submission time:   2021-06-29 17:08:15
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -18,4 +25,3 @@ int main()
 		cout << ans << "\n";
 	}
 }
-

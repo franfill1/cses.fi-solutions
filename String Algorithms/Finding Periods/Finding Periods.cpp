@@ -1,3 +1,10 @@
+/*
+Task:              1733 Finding Periods
+Sender:            franfill
+Submission time:   2021-05-29 19:17:44
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -48,5 +55,4 @@ int main()
 	cout << s.size();
 
 }
-
 

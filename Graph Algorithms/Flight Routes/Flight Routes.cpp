@@ -1,3 +1,10 @@
+/*
+Task:              1196 Flight Routes
+Sender:            franfill
+Submission time:   2021-07-21 13:17:11
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -45,4 +52,3 @@ int main()
 
 	for (ll d : ans) cout << d << " ";
 }
-

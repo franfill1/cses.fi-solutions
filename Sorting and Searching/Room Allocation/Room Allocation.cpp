@@ -1,3 +1,10 @@
+/*
+Task:              1164 Room Allocation
+Sender:            franfill
+Submission time:   2021-07-03 15:40:57
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -48,4 +55,3 @@ int main()
 	cout << ans << "\n";
 	for (int r : id) cout << r << " ";
 }
-

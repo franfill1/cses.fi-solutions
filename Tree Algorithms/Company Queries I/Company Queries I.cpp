@@ -1,3 +1,10 @@
+/*
+Task:              1687 Company Queries I
+Sender:            franfill
+Submission time:   2021-02-08 16:29:57
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -52,5 +59,4 @@ int main()
 		cout << x + (x >= 0) << "\n";
 	}
 }
-
 

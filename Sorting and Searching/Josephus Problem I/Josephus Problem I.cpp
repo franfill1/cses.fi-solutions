@@ -1,3 +1,10 @@
+/*
+Task:              2162 Josephus Problem I
+Sender:            franfill
+Submission time:   2021-07-03 12:50:29
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #pragma GCC optimize("Ofast")
 using namespace std;
@@ -17,4 +24,3 @@ int main()
 		cout << s[p] + 1 << " ";
 	cout << p+1;
 }
-

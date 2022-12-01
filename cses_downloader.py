@@ -1,76 +1,132 @@
-################################################################################
-# Script Name   : cses_downloader
-# Description   : download accepted solutions of cses.fi
-# Author        : Lorenzo Ferrari
-# Github        : https://github.com/lorenzo-ferrari/
-################################################################################
-
 import requests
 import urllib
-import getpass
+from bs4 import BeautifulSoup
+import re
+from datetime import datetime
 import html
 import os
-import sys
+import getpass
 
-def findInBetween(text, before, after):
-    l = text.index(before) + len(before)
-    r = text.index(after, l)
-    return text[l:r]
+s = requests.session()
 
-def main(nick, password):
-    """
-    LOGIN
-    """
-    r = requests.get('https://cses.fi/login')
-    PHPSESSID = r.headers['Set-Cookie'][:-8]
+cses_date_format = "%Y-%m-%d %H:%M:%S"
 
-    csrf_token = findInBetween(r.text, '<input type="hidden" name="csrf_token" value="', '"')
-    _params = urllib.parse.urlencode({ 'csrf_token' : csrf_token, 'nick' : nick, 'pass' : password})
-    _headers = { 'Content-Type' : 'application/x-www-form-urlencoded' , 'Cookie' : PHPSESSID }
 
-    login_failed = "Invalid username or password"
-    r = requests.post('https://cses.fi/login', headers=_headers, data=_params)
-    if r.text.find(login_failed) != -1:
-        print("Invalid username or password")
-        quit()
+class Submission:
+    downloaded: bool = False
+    cses_id: int | None = None
+    task_id: int | None = None
+    task_name: str | None = None
+    sender: int | None = None
+    timestamp: int | None = None
+    language: str | None = None
+    result: str | None = None
+    code: str | None = None
 
-    """
-    DOWNLOAD
-    """
-    r = requests.post('https://cses.fi/problemset', headers=_headers, data=_params)
+    def __init__(self, cses_id: int):
+        self.cses_id = cses_id
 
-    fullscore_icon = '<span class="task-score icon full">'
-    task_prefix = '<li class="task"><a href="/problemset/task/'
-    task_suffix = '</a>'
-    solved = []
-    tasks = r.text.split(task_prefix)[1:]
-    for task in tasks:
-        if task.find(fullscore_icon) != -1:
-            prob_id = task[:4]
-            prob_name = task[6:task.find(task_suffix)]
-            solved.append((prob_id, prob_name))
+    def download(self):
+        url = f"https://cses.fi/problemset/result/{self.cses_id}"
+        soup = BeautifulSoup(s.get(url).text, "html.parser")
+        table = soup.find("table", class_="summary-table")
+        rows = table.find_all("tr")
 
-    for (prob_id, prob_name) in solved:
-        print(prob_id, "-", prob_name, ": downloading")
-        r = requests.post('https://cses.fi/problemset/task/'+prob_id, headers=_headers, data=_params)
-        category_prefix = '<div class="nav sidebar">\n<h4>'
-        category_suffix = "</h4>"
-        category = findInBetween(r.text, category_prefix, category_suffix)
-        all_subs = r.text.split('\n')[-3].split('href="/problemset/result/')[1:]
-        successful_subs = [sub[ : sub.find('/"')] for sub in all_subs if sub.find(fullscore_icon) != -1]
-        if len(successful_subs) == 0:
-            print('Something went wrong: can\'t find any fullscore submissions')
-            quit()
-        r = requests.post('https://cses.fi/problemset/result/'+successful_subs[0], headers=_headers, data=_params)
-        code_prefix = '<pre class="prettyprint linenums resize-horizontal" style="">'
-        code_suffix = '</pre></div></div><a href="/paste/'
-        code = findInBetween(r.text, code_prefix, code_suffix) + '\n'
-        code = html.unescape(code)
-        filename = f'{category}/{prob_name}/{prob_name}.cpp'
-        os.makedirs(os.path.split(filename)[0], exist_ok = True)
-        with open(filename, 'w') as f:
-            f.write(code)
-        print(prob_id, "-", prob_name, ": download completed")
+        task = rows[0].contents[1]
+        self.task_id = int(task.a["href"].split("/")[-2])
+        self.task_name = str(task.a.string)
 
-if __name__ == '__main__':
-    main(input('Username: '), getpass.getpass())
+        self.sender = str(rows[1].contents[1].string)
+
+        date_string = str(rows[2].contents[1].string)
+        date = datetime.strptime(date_string, cses_date_format)
+        self.timestamp = datetime.timestamp(date)
+
+        self.language = str(rows[3].contents[1].string)
+        status = str(rows[4].contents[1].string)
+
+        if (status == "READY"):
+            self.result = str(rows[5].contents[1].string)
+        else:
+            self.result = status
+
+        code = str(soup.find("pre", class_="prettyprint").string)
+        self.code = html.unescape(code)
+
+        return self
+
+    def to_string(self):
+        prefix = "/*\n"
+        prefix += f"Task:              {self.task_id} {self.task_name}\n"
+        prefix += f"Sender:            {self.sender}\n"
+        date = datetime.fromtimestamp(self.timestamp)
+        date_string = date.strftime(cses_date_format)
+        prefix += f"Submission time:   {date_string}\n"
+        prefix += f"Language:          {self.language}\n"
+        prefix += f"Result:            {self.result}\n"
+        prefix += "/*\n"
+        body = prefix + self.code
+        return body.replace("\r\n", "\n")
+
+
+def login(username: str, password: str):
+    r = s.get("https://cses.fi/login")
+    html_doc = r.text
+    soup = BeautifulSoup(html_doc, "html.parser")
+    csrf_token = soup.find("input", type="hidden")["value"]
+    params = urllib.parse.urlencode(
+            {'csrf_token': csrf_token, 'nick': username, 'pass': password})
+    headers = {"Content-Type": "application/x-www-form-urlencoded"}
+    url = "https://cses.fi/login"
+
+    r = s.post(url, headers=headers, data=params)
+    if len(re.findall("Invalid username or password", r.text)) > 0:
+        raise Exception("Invalid username or password")
+
+
+def get_user_id() -> int:
+    r = s.get("https://cses.fi/")
+    html_doc = r.text
+    soup = BeautifulSoup(html_doc, "html.parser")
+    user_link = soup.find("a", class_="account")["href"]
+    return int(user_link.split("/")[-1])
+
+
+def save_last_sol(task_id: int):
+    url = f"https://cses.fi/problemset/task/{task_id}"
+    r = s.get(url)
+    html_doc = r.text
+    soup = BeautifulSoup(html_doc, "html.parser")
+
+    title = soup.h1.string
+    category = soup.find("div", class_="nav sidebar").contents[1].string
+
+    subs_href_regex = re.compile(r"^\/problemset\/result\/\d+\/$")
+    subs = soup.find_all("a", href=subs_href_regex)
+    sols = [sub for sub in subs if "full" in sub.span["class"]]
+    last_sol = sols[0]
+    last_sol_id = int(last_sol["href"].split("/")[-2])
+    code = Submission(last_sol_id).download().to_string()
+
+    filename = f"{category}/{title}/{title}.cpp"
+    os.makedirs(os.path.split(filename)[0], exist_ok=True)
+    print(f"{category} / {task_id} - {title}")
+    with open(filename, "w") as file:
+        file.write(code)
+
+
+def get_solved_tasks():
+    r = s.get("https://cses.fi/problemset/")
+    html_doc = r.text
+    soup = BeautifulSoup(html_doc, "html.parser")
+    tasks = soup.find_all("li", class_="task")
+    solved_tasks = [task for task in tasks
+                    if "full" in task.find("span", class_="icon")["class"]]
+    tasks_ids = [int(task.a["href"].split("/")[-1]) for task in solved_tasks]
+    return tasks_ids
+
+
+if __name__ == "__main__":
+    login(input("Username: "), getpass.getpass())
+    for id in get_solved_tasks():
+        save_last_sol(id)

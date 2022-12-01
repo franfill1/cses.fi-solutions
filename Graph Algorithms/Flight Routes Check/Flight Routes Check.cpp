@@ -1,3 +1,10 @@
+/*
+Task:              1682 Flight Routes Check
+Sender:            franfill
+Submission time:   2021-07-26 21:29:35
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -119,4 +126,3 @@ int main()
 		cout << edge.second+1 << " " << edge.first+1 << "\n";
 	}
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1661 Subarray Sums II
+Sender:            franfill
+Submission time:   2021-07-17 01:07:00
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -22,4 +29,3 @@ int main()
 
 	cout << ans;
 }
-

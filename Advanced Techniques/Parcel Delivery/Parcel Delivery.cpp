@@ -1,3 +1,10 @@
+/*
+Task:              2121 Parcel Delivery
+Sender:            franfill
+Submission time:   2022-10-31 12:31:04
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -104,4 +111,3 @@ int main()
 	else
 		cout << cost << "\n";
 }
-

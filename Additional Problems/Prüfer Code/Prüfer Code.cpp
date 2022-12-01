@@ -1,3 +1,10 @@
+/*
+Task:              1134 Prüfer Code
+Sender:            franfill
+Submission time:   2022-10-24 16:04:26
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -28,4 +35,3 @@ int main()
 	pq.pop();
 	cout << pq.top()+1 << " " << x+1 << "\n";
 }
-

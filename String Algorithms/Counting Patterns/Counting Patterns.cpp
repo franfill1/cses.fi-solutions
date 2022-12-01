@@ -1,3 +1,10 @@
+/*
+Task:              2103 Counting Patterns
+Sender:            franfill
+Submission time:   2022-10-13 16:12:58
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -110,4 +117,3 @@ int main()
 		cout << r-l << "\n";
 	}
 }
-

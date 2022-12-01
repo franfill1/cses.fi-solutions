@@ -1,3 +1,10 @@
+/*
+Task:              2183 Missing Coin Sum
+Sender:            franfill
+Submission time:   2021-07-02 22:34:32
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,4 +26,3 @@ int main()
 	}
 	cout << sum+1 << "\n";
 }
-

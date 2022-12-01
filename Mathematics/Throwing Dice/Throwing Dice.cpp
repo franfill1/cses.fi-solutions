@@ -1,3 +1,10 @@
+/*
+Task:              1096 Throwing Dice
+Sender:            franfill
+Submission time:   2021-11-30 22:52:48
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -59,4 +66,3 @@ int main()
 	b = modpow(b, n+1);
 	cout << b[0][5] << "\n";
 }
-

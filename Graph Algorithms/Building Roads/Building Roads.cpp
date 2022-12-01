@@ -1,3 +1,10 @@
+/*
+Task:              1666 Building Roads
+Sender:            franfill
+Submission time:   2021-02-26 23:02:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -51,5 +58,4 @@ int main()
 		cout << 1 << " " << ans[i]+1 << "\n";
 	}
 }
-
 

@@ -1,3 +1,10 @@
+/*
+Task:              2168 Nested Ranges Check
+Sender:            franfill
+Submission time:   2021-07-03 13:37:37
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -46,4 +53,3 @@ int main()
 	}
 	for (bool b : c) cout << b << " ";
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1694 Download Speed
+Sender:            franfill
+Submission time:   2021-07-30 22:13:43
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -84,4 +91,3 @@ int main()
 	
 	cout << max_flow();
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1737 Range Queries and Copies
+Sender:            franfill
+Submission time:   2021-08-06 22:53:54
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -119,4 +126,3 @@ int main()
 		}
 	}
 }
-

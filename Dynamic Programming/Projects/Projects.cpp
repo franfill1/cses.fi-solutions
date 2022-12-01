@@ -1,3 +1,10 @@
+/*
+Task:              1140 Projects
+Sender:            franfill
+Submission time:   2021-07-20 11:44:37
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -38,4 +45,3 @@ int main()
 
 	cout << memo[0];
 }
-

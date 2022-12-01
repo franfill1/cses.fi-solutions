@@ -1,3 +1,10 @@
+/*
+Task:              1691 Mail Delivery
+Sender:            franfill
+Submission time:   2021-07-26 23:09:28
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -81,4 +88,3 @@ int main()
 			
 
 }
-

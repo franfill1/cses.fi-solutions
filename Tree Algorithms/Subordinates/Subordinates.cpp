@@ -1,3 +1,10 @@
+/*
+Task:              1674 Subordinates
+Sender:            franfill
+Submission time:   2021-02-08 12:05:59
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -35,5 +42,4 @@ int main()
 		cout << ans[i] << " ";
 	}
 }
-
 

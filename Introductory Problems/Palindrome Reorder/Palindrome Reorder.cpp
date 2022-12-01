@@ -1,3 +1,10 @@
+/*
+Task:              1755 Palindrome Reorder
+Sender:            franfill
+Submission time:   2021-06-29 23:47:24
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -29,4 +36,3 @@ int main()
 	cout << s;
 
 }
-

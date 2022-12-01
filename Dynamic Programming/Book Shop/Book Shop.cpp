@@ -1,3 +1,10 @@
+/*
+Task:              1158 Book Shop
+Sender:            franfill
+Submission time:   2021-03-17 23:45:53
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -44,5 +51,4 @@ int main()
 	
 	cout << memo[N][X];
 }
-
 

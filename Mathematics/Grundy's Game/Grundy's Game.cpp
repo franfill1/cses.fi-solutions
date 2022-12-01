@@ -1,3 +1,10 @@
+/*
+Task:              2207 Grundy's Game
+Sender:            franfill
+Submission time:   2022-01-29 16:07:41
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define maxn 1222 
 using namespace std;
@@ -26,4 +33,3 @@ int main()
 		else cout << (v[n]?"first":"second") << "\n";
 	}
 }
-

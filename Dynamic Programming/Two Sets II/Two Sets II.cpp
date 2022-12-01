@@ -1,3 +1,10 @@
+/*
+Task:              1093 Two Sets II
+Sender:            franfill
+Submission time:   2021-07-20 11:23:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -33,5 +40,4 @@ int main()
 		cout << cnt[tar] << "\n";
 	}
 }
-
 

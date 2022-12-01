@@ -1,3 +1,10 @@
+/*
+Task:              2192 Point in Polygon
+Sender:            franfill
+Submission time:   2021-05-23 09:17:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
  
 using namespace std;
@@ -219,5 +226,4 @@ int main()
 		}
 	}
 }
-
 

@@ -1,3 +1,10 @@
+/*
+Task:              2206 Pizzeria Queries
+Sender:            franfill
+Submission time:   2021-08-02 19:18:18
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -82,4 +89,3 @@ int main()
 		}
 	}
 }
-

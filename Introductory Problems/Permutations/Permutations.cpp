@@ -1,3 +1,10 @@
+/*
+Task:              1070 Permutations
+Sender:            franfill
+Submission time:   2021-06-29 16:43:24
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -22,4 +29,3 @@ int main()
 	for (int i = 1; i*2-1 <= N; i++)
 		cout << i*2-1 << " ";
 }
-

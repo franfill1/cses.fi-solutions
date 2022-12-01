@@ -1,3 +1,10 @@
+/*
+Task:              1095 Exponentiation
+Sender:            franfill
+Submission time:   2021-11-25 10:36:00
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -21,4 +28,3 @@ int main()
 		cout << modpow(a, b, M) << "\n";
 	}
 }
-

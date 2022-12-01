@@ -1,3 +1,10 @@
+/*
+Task:              1079 Binomial Coefficients
+Sender:            franfill
+Submission time:   2021-11-26 18:20:10
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 typedef long long ll;
@@ -26,4 +33,3 @@ int main()
 		cout << (((fact[a] * modpow(fact[b], M-2))%M * modpow(fact[a-b], M-2))%M) << "\n";
 	}
 }
-

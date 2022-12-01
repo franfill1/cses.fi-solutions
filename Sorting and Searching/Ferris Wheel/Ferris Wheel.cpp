@@ -1,3 +1,10 @@
+/*
+Task:              1090 Ferris Wheel
+Sender:            franfill
+Submission time:   2021-07-01 14:06:17
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -19,4 +26,3 @@ int main()
 	
 	cout << n-l;
 }
-

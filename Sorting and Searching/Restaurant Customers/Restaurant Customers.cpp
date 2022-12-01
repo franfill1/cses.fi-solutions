@@ -1,3 +1,10 @@
+/*
+Task:              1619 Restaurant Customers
+Sender:            franfill
+Submission time:   2021-07-02 15:42:30
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -26,4 +33,3 @@ int main()
 	cout << ans;
 		
 }
-

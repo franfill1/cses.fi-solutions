@@ -1,3 +1,10 @@
+/*
+Task:              1111 Longest Palindrome
+Sender:            franfill
+Submission time:   2022-05-28 18:45:54
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -85,4 +92,3 @@ int main()
 		if (s[i] != '#')cout << s[i];
 	}
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              2105 Distinct Substrings
+Sender:            franfill
+Submission time:   2022-10-13 23:22:59
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -105,4 +112,3 @@ int main()
 	}
 	cout << ans << "\n";
 }
-

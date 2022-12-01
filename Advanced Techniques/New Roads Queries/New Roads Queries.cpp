@@ -1,3 +1,10 @@
+/*
+Task:              2101 New Roads Queries
+Sender:            franfill
+Submission time:   2021-12-04 12:02:39
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -159,5 +166,4 @@ int main()
 		}
 	}
 }
-
 

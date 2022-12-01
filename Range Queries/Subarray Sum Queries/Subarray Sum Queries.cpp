@@ -1,3 +1,10 @@
+/*
+Task:              1190 Subarray Sum Queries
+Sender:            franfill
+Submission time:   2021-08-02 19:45:32
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -78,4 +85,3 @@ int main()
 		cout << seg.get(0, n-1) << "\n";
 	}
 }
-

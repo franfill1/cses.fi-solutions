@@ -1,3 +1,10 @@
+/*
+Task:              1676 Road Construction
+Sender:            franfill
+Submission time:   2021-07-26 20:43:23
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -64,4 +71,3 @@ int main()
 		cout << cnt << " " << siz << "\n";
 	}
 }
-

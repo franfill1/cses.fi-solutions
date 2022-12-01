@@ -1,3 +1,10 @@
+/*
+Task:              1630 Tasks and Deadlines
+Sender:            franfill
+Submission time:   2021-11-03 15:24:38
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<iostream>
 #include<algorithm>
 using namespace std;
@@ -27,5 +34,4 @@ int main()
 	}
 	cout << ans << "\n";
 }
-
 

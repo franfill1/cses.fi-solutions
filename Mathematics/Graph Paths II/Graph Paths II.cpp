@@ -1,3 +1,10 @@
+/*
+Task:              1724 Graph Paths II
+Sender:            franfill
+Submission time:   2021-11-30 23:29:29
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 using namespace std;
@@ -61,4 +68,3 @@ int main()
 	b = modpow(b, k);
 	cout << (b[0][n-1] == 1ll<<60 ? -1 : b[0][n-1]) << "\n";
 }
-

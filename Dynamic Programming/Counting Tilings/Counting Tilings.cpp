@@ -1,3 +1,10 @@
+/*
+Task:              2181 Counting Tilings
+Sender:            franfill
+Submission time:   2021-07-20 12:48:38
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -49,4 +56,3 @@ int main()
 	memo.resize(1<<n, vector < ll > (m, -1));
 	cout << dp(0, 0);
 }
-

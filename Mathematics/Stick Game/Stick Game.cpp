@@ -1,3 +1,10 @@
+/*
+Task:              1729 Stick Game
+Sender:            franfill
+Submission time:   2022-01-28 20:37:04
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 int p[100];
@@ -33,4 +40,3 @@ int main()
 		}
 	}
 }
-

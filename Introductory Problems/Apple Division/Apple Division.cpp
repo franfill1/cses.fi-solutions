@@ -1,3 +1,10 @@
+/*
+Task:              1623 Apple Division
+Sender:            franfill
+Submission time:   2021-06-30 11:25:09
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -33,4 +40,3 @@ int main()
 	}
 	cout << ans;
 }
-

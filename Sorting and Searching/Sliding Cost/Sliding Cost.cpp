@@ -1,3 +1,10 @@
+/*
+Task:              1077 Sliding Cost
+Sender:            franfill
+Submission time:   2021-07-17 15:14:30
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -112,4 +119,3 @@ int main()
 		cout << m.get() << " ";
 	}
 }
-

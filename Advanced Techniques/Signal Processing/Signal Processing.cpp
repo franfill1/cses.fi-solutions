@@ -1,3 +1,10 @@
+/*
+Task:              2113 Signal Processing
+Sender:            franfill
+Submission time:   2022-10-17 14:52:08
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -68,4 +75,3 @@ int main()
 		cout << c[i] << " ";
 	cout << "\n";
 }
-

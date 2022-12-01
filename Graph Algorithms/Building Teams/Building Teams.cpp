@@ -1,3 +1,10 @@
+/*
+Task:              1668 Building Teams
+Sender:            franfill
+Submission time:   2021-07-20 20:57:14
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -46,4 +53,3 @@ int main()
 
 	for (int i : c) cout << i << " ";
 }
-

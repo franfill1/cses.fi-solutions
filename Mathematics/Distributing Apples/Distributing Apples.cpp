@@ -1,3 +1,10 @@
+/*
+Task:              1716 Distributing Apples
+Sender:            franfill
+Submission time:   2021-11-26 18:37:06
+Language:          C++17
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 #define M 1000000007
 typedef long long ll;
@@ -21,4 +28,3 @@ int main()
 	cin >> n >> m;
 	cout << ((fact[n+m-1] * modpow(fact[n-1], M-2))%M * modpow(fact[m], M-2))%M << "\n";
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1650 Range Xor Queries
+Sender:            franfill
+Submission time:   2021-07-31 13:22:24
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -35,4 +42,3 @@ int main()
 		cout << px.get(a, b) << "\n";
 	}
 }
-

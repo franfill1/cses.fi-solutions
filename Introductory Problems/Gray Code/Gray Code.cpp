@@ -1,3 +1,10 @@
+/*
+Task:              2205 Gray Code
+Sender:            franfill
+Submission time:   2021-06-30 00:33:17
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -27,4 +34,3 @@ int main()
 	cin >> N;
 	genGray(N);
 }
-

@@ -1,3 +1,10 @@
+/*
+Task:              1192 Counting Rooms
+Sender:            franfill
+Submission time:   2021-02-26 22:09:11
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -44,5 +51,4 @@ int main()
 	}
 	cout << ans;
 }
-
 

@@ -1,3 +1,10 @@
+/*
+Task:              1136 Counting Paths
+Sender:            franfill
+Submission time:   2021-02-08 22:03:10
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include <bits/stdc++.h>
 
 using namespace std;
@@ -137,4 +144,3 @@ int main()
 		cout << ans[i] << " ";
 	}
 }
-

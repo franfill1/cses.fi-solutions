@@ -1,3 +1,10 @@
+/*
+Task:              1644 Maximum Subarray Sum II
+Sender:            franfill
+Submission time:   2021-07-17 15:35:59
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;
@@ -49,4 +56,3 @@ int main()
 
 	cout << ans;
 }
-

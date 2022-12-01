@@ -1,3 +1,10 @@
+/*
+Task:              1620 Factory Machines
+Sender:            franfill
+Submission time:   2021-07-03 15:52:25
+Language:          C++11
+Result:            ACCEPTED
+/*
 #include<bits/stdc++.h>
 using namespace std;
 
@@ -34,5 +41,4 @@ int main()
 	}
 	cout << b;
 }
-
 
