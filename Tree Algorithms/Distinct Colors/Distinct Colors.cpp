@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-06-03 22:18:32
 Language:          C++11
 Result:            ACCEPTED
-/*
+*/
 #include <bits/stdc++.h>
 
 #define maxc 1000000000

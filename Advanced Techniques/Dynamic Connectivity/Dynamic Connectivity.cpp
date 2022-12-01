@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2022-11-19 18:35:31
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 using namespace std;
 using edge = pair < int , int >;

@@ -64,7 +64,7 @@ class Submission:
         prefix += f"Submission time:   {date_string}\n"
         prefix += f"Language:          {self.language}\n"
         prefix += f"Result:            {self.result}\n"
-        prefix += "/*\n"
+        prefix += "*/\n"
         body = prefix + self.code
         return body.replace("\r\n", "\n")
 

@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-03-17 18:53:21
 Language:          C++11
 Result:            ACCEPTED
-/*
+*/
 #include <bits/stdc++.h>
 
 int INF = 1<<30;

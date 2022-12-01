@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-11-26 15:18:44
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 #define maxx 1000000
 #pragma GCC target ("avx2")

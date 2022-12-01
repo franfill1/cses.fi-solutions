@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2022-02-08 17:27:05
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 using namespace std;
 typedef long long ll;

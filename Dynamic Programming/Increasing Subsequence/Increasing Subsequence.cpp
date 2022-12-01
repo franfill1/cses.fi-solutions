@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2022-04-30 18:25:27
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 using namespace std;
 

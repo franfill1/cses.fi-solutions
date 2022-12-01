@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-07-30 22:35:27
 Language:          C++11
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 using namespace std;
 typedef pair < int , int > state;

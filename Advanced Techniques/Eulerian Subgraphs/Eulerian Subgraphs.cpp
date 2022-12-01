@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2022-10-17 18:01:00
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 using namespace std;
 const long long mod = 1000000007;

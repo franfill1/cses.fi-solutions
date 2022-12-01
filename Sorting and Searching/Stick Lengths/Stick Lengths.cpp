@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-11-03 15:21:31
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<iostream>
 #include<algorithm>
 using namespace std;

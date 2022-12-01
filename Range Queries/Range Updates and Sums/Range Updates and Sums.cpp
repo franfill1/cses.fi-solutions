@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-11-14 14:14:53
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 #define int long long
 using namespace std;

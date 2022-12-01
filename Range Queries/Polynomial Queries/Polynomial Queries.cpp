@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2021-08-27 15:09:40
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 // https://cses.fi/problemset/task/1736
 #include <bits/stdc++.h>
 using namespace std;

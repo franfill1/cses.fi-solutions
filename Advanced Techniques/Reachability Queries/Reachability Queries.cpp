@@ -4,7 +4,7 @@ Sender:            franfill
 Submission time:   2022-11-29 21:37:26
 Language:          C++17
 Result:            ACCEPTED
-/*
+*/
 #include<bits/stdc++.h>
 #pragma GCC target("popcnt")
 using namespace std;
