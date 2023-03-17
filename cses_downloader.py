@@ -35,28 +35,21 @@ class Submission:
         soup = BeautifulSoup(s.get(url).text, "html.parser")
         table = soup.find("table", class_="summary-table")
         rows = table.find_all("tr")
-
         task = rows[0].contents[1]
         self.task_id = int(task.a["href"].split("/")[-2])
         self.task_name = str(task.a.string)
-
         self.sender = str(rows[1].contents[1].string)
-
         date_string = str(rows[2].contents[1].string)
         date = datetime.strptime(date_string, cses_date_format)
         self.timestamp = datetime.timestamp(date)
-
         self.language = str(rows[3].contents[1].string)
         status = str(rows[4].contents[1].string)
-
         if (status == "READY"):
             self.result = str(rows[5].contents[1].string)
         else:
             self.result = status
-
         code = str(soup.find("pre", class_="prettyprint").string)
         self.code = html.unescape(code)
-
         self.downloaded = True
         return self
 
@@ -96,17 +89,13 @@ class Task:
     def download(self):
         url = f"https://cses.fi/problemset/task/{self.cses_id}"
         soup = BeautifulSoup(s.get(url).text, "html.parser")
-
         self.title = str(soup.h1.string)
-
         sidebar = soup.find("div", class_="nav sidebar")
         self.category = sidebar.contents[1].string
-
         constraints = soup.find("ul", class_="task-constraints")\
             .find_all("li")
         self.time_limit = float(constraints[0].contents[1].split()[0])
         self.memory_limit = int(constraints[1].contents[1].split()[0])
-
         subs_href_regex = re.compile(r"^\/problemset\/result\/\d+\/$")
         submissions_tags = soup.find_all("a", href=subs_href_regex)
 
@@ -126,7 +115,6 @@ class Task:
 
         self.submissions = [parse_sub(tag) for tag in submissions_tags]
         self.submissions = sorted(self.submissions, key=lambda x: x.timestamp)
-
         self.downloaded = True
         return self
 
@@ -147,9 +135,8 @@ class Task:
 
 
 def login(username: str, password: str):
-    r = s.get("https://cses.fi/login")
-    html_doc = r.text
-    soup = BeautifulSoup(html_doc, "html.parser")
+    url = "https://cses.fi/login"
+    soup = BeautifulSoup(s.get(url).text, "html.parser")
     csrf_token = soup.find("input", type="hidden")["value"]
     params = urllib.parse.urlencode(
             {'csrf_token': csrf_token, 'nick': username, 'pass': password})
@@ -157,16 +144,14 @@ def login(username: str, password: str):
     url = "https://cses.fi/login"
 
     r = s.post(url, headers=headers, data=params)
-    if len(re.findall("Invalid username or password", r.text)) > 0:
+    if re.search("Invalid username or password", r.text):
         raise Exception("Invalid username or password")
 
 
 def get_tasks() -> list[Task]:
-    r = s.get("https://cses.fi/problemset/")
-    html_doc = r.text
-    soup = BeautifulSoup(html_doc, "html.parser")
+    url = "https://cses.fi/problemset/"
+    soup = BeautifulSoup(s.get(url).text, "html.parser")
     content = list(soup.find("div", class_="content").children)
-    tasks_tags = soup.find_all("li", class_="task")
 
     def parse_task(tag, category) -> Task:
         task_id = tag.a["href"].split("/")[-1]
