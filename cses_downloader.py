@@ -19,6 +19,7 @@ class Submission:
     task_id: int | None
     task_name: str | None
     sender: int | None
+    date_string: str | None
     timestamp: int | None
     language: str | None
     result: str | None
@@ -39,8 +40,8 @@ class Submission:
         self.task_id = int(task.a["href"].split("/")[-2])
         self.task_name = str(task.a.string)
         self.sender = str(rows[1].contents[1].string)
-        date_string = str(rows[2].contents[1].string)
-        date = datetime.strptime(date_string, cses_date_format)
+        self.date_string = str(rows[2].contents[1].string)
+        date = datetime.strptime(self.date_string, cses_date_format)
         self.timestamp = datetime.timestamp(date)
         self.language = str(rows[3].contents[1].string)
         status = str(rows[4].contents[1].string)
@@ -56,16 +57,13 @@ class Submission:
     def to_string(self):
         if not self.downloaded:
             self.download()
-        prefix = "/*\n"
-        prefix += f"Task:              {self.task_id} {self.task_name}\n"
-        prefix += f"Sender:            {self.sender}\n"
-        date = datetime.fromtimestamp(self.timestamp)
-        date_string = date.strftime(cses_date_format)
-        prefix += f"Submission time:   {date_string}\n"
-        prefix += f"Language:          {self.language}\n"
-        prefix += f"Result:            {self.result}\n"
-        prefix += "*/\n"
-        body = prefix + self.code
+        try:
+            with open("header.txt", "r") as f:
+                header_template = f.read()
+            header = header_template.format(self)
+        except FileNotFoundError:
+            header = ""
+        body = header + self.code
         return body.replace("\r\n", "\n")
 
 
@@ -178,7 +176,7 @@ if __name__ == "__main__":
     login(input("Username: "), getpass.getpass())
     solved_tasks = [task for task in get_tasks() if task.status == "ACCEPTED"]
     for task in solved_tasks:
-        filename = f"{task.category}/{task.title}/{task.title}.cpp"
+        filename = f"src/{task.category}/{task.cses_id}-{task.title}.cpp"
 
         if (os.path.exists(filename)):
             with open(filename, "r") as file:
