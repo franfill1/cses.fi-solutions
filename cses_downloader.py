@@ -42,7 +42,7 @@ class Submission:
         self.task_name = str(task.a.string)
         self.sender = str(rows[1].contents[1].string)
         self.date_string = str(rows[2].contents[1].string)
-        date = datetime.strptime(self.date_string, cses_date_format)
+        date = datetime.strptime(self.date_string, cses_date_format + " %z")
         self.timestamp = datetime.timestamp(date)
         self.language = str(rows[3].contents[1].string)
         status = str(rows[4].contents[1].string)
