@@ -1,7 +1,7 @@
 /*
-Task:              1077 Sliding Cost
+Task:              Sliding Window Median
 Sender:            franfill
-Submission time:   2021-07-17 15:14:30
+Submission time:   2021-07-17 15:06:33 +0300
 Language:          C++11
 Result:            ACCEPTED
 */
@@ -13,7 +13,6 @@ struct medianset
 {
 	multiset < ll > l;
 	multiset < ll > h;
-	ll a = 0, b = 0;
 	ll k;
 
 	void print()
@@ -27,7 +26,6 @@ struct medianset
 	medianset(ll m, ll ik) : k(ik)
 	{
 		l.insert(m);
-		a = m;
 	}
 
 	void add(ll v)
@@ -35,23 +33,17 @@ struct medianset
 		if (v <= *prev(l.end()))
 		{
 			l.insert(v);
-			a += v;
 			if (l.size() > (k+1)/2)
 			{
-				a -= *prev(l.end());
-				b += *prev(l.end());
 				h.insert(*prev(l.end()));
 				l.erase(prev(l.end()));
 			}
 		}
 		else
 		{
-			b += v;
 			h.insert(v);
 			if (h.size() > k/2)
 			{
-				a += *h.begin();
-				b -= *h.begin();
 				l.insert(*h.begin());
 				h.erase(h.begin());
 			}
@@ -62,17 +54,13 @@ struct medianset
 	{
 		if (h.count(v))
 		{
-			b -= v;
 			h.erase(h.find(v));
 		}
 		else
 		{
-			a -= v;
 			l.erase(l.find(v));
 			if (l.empty())
 			{
-				a += *h.begin();
-				b -= *h.begin();
 				l.insert(*h.begin());
 				h.erase(h.begin());
 			}
@@ -81,7 +69,7 @@ struct medianset
 
 	ll get()
 	{
-		return b - a + ((k%2) * (*prev(l.end())));
+		return *prev(l.end());
 	}
 };
 
